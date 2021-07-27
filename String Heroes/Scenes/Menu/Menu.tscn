@@ -1,0 +1,347 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/UI/Menus/Screens/Tela_inicial.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/Menus/Screens/Tela_menu.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Menu/IconButtons/IconButtons.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/UI/Menus/Screens/Logo_tela_inicial.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Menu/IconButtons/GameSelector.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Minigame2/Minigame2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/HistoryMode/HistoryMode.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/UI/Menus/Icons/icon_puzzle_game_selected.png" type="Texture" id=11]
+[ext_resource path="res://Assets/UI/Menus/Icons/icon_concerto_game_selected.png" type="Texture" id=12]
+[ext_resource path="res://Assets/UI/Menus/Icons/icon_concerto_game_deselected.png" type="Texture" id=13]
+[ext_resource path="res://Assets/UI/Menus/Icons/icon_puzzle_game_deselected.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Arts/Clarissa/Icon/default.png" type="Texture" id=15]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+corner_radius_top_left = 29
+corner_radius_top_right = 29
+corner_radius_bottom_right = 29
+corner_radius_bottom_left = 29
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+corner_radius_top_left = 29
+corner_radius_top_right = 29
+corner_radius_bottom_right = 29
+corner_radius_bottom_left = 29
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+corner_radius_top_left = 29
+corner_radius_top_right = 29
+corner_radius_bottom_right = 29
+corner_radius_bottom_left = 29
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 7 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.82837
+margin_top = -2.82843
+margin_right = -2.82837
+margin_bottom = -2.82843
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera" parent="." instance=ExtResource( 8 )]
+
+[node name="Inicial" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Inicial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Inicial"]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Inicial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 375.0
+margin_top = 92.0
+margin_right = -224.0
+margin_bottom = -228.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_jogar" type="Button" parent="Inicial"]
+anchor_left = 0.353125
+anchor_top = 0.752778
+anchor_right = 0.641406
+anchor_bottom = 0.834722
+margin_left = 5.99997
+margin_top = -2.0
+margin_right = 6.0
+margin_bottom = -2.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Jogar"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Seletor" type="Control" parent="."]
+margin_left = 1280.0
+margin_right = 2560.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 1280, 720 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Seletor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Seletor"]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HScrollBar" type="HScrollBar" parent="Seletor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/grabber = SubResource( 3 )
+custom_styles/scroll = SubResource( 3 )
+custom_styles/grabber_pressed = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameSelector" type="HBoxContainer" parent="Seletor/HScrollBar"]
+modulate = Color( 1, 1, 1, 0.752941 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 65.0
+margin_top = 150.0
+margin_right = -65.0
+margin_bottom = -170.0
+grow_horizontal = 0
+rect_min_size = Vector2( 1150, 400 )
+custom_constants/separation = 50
+alignment = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="IconButtons" parent="Seletor/HScrollBar/GameSelector" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 75.0
+margin_right = 375.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1 )
+item_name = "Concerto"
+go_to_scene = ExtResource( 9 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 12 )
+
+[node name="IconButtons2" parent="Seletor/HScrollBar/GameSelector" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 425.0
+margin_right = 725.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1 )
+item_name = "História"
+item_focus = true
+go_to_scene = ExtResource( 10 )
+texture_normal = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
+
+[node name="IconButtons3" parent="Seletor/HScrollBar/GameSelector" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 775.0
+margin_right = 1075.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1 )
+item_name = "Quebra-cabeça"
+texture_normal = ExtResource( 14 )
+texture_hover = ExtResource( 11 )
+
+[node name="Button_creditos" type="Button" parent="Seletor"]
+anchor_left = 0.460938
+anchor_top = 0.930556
+anchor_right = 0.539063
+anchor_bottom = 0.972222
+margin_left = -0.000671387
+margin_top = -0.000305176
+margin_right = -0.000610352
+margin_bottom = -0.000305176
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Créditos"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": ""
+}
+
+[node name="Creditos" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1280.0
+margin_top = 720.0
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Creditos"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+
+[node name="Label" type="Label" parent="Creditos"]
+modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -91.5
+margin_top = -28.5
+margin_right = 91.5
+margin_bottom = 28.5
+custom_fonts/font = SubResource( 6 )
+text = "Créditos"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_menu" type="Button" parent="Creditos"]
+anchor_left = 0.441406
+anchor_top = 0.930556
+anchor_right = 0.558594
+anchor_bottom = 0.972222
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Voltar ao menu"
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": ""
+}
+
+[node name="Loading" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2560.0
+margin_right = 2560.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Loading"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Loading"]
+modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
+anchor_left = 0.408594
+anchor_top = 0.460417
+anchor_right = 0.595312
+anchor_bottom = 0.539583
+custom_fonts/font = SubResource( 6 )
+text = "Loading. . ."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Go_to" type="Label" parent="Loading"]
+modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.5
+margin_top = 21.5
+margin_right = 108.5
+margin_bottom = 78.5
+custom_fonts/font = SubResource( 6 )
+text = "undefined"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Inicial/Button_jogar" to="." method="_on_Button_menu_pressed"]
+[connection signal="seletor_button_pressed" from="Seletor/HScrollBar/GameSelector" to="." method="_on_GameSelector_seletor_button_pressed"]
+[connection signal="pressed" from="Seletor/Button_creditos" to="." method="_on_Button_creditos_pressed"]
+[connection signal="pressed" from="Creditos/Button_menu" to="." method="_on_Button_menu_pressed"]

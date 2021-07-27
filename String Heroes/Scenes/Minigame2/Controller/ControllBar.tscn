@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Minigame2/Controller/MouseColored/PanelColored.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Minigame2/Controller/ControllBar.gd" type="Script" id=2]
+
+[node name="ControllBar" type="Control"]
+anchor_right = 0.032
+anchor_bottom = 0.564
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 410.0
+mouse_filter = 2
+color = Color( 0.12549, 0.121569, 0.129412, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Panels" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PanelColored" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 119.21 )
+panel_color = Color( 0.764706, 0.231373, 0.231373, 1 )
+
+[node name="PanelColored2" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 19.7898, 137 )
+panel_color = Color( 0.396078, 0.788235, 0.341176, 1 )
+
+[node name="PanelColored3" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 155 )
+panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )
+
+[node name="PanelColored4" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 173 )
+panel_color = Color( 0.764706, 0.231373, 0.231373, 1 )
+
+[node name="PanelColored5" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 191 )
+panel_color = Color( 0.396078, 0.788235, 0.341176, 1 )
+
+[node name="PanelColored6" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 209 )
+panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )
+
+[node name="PanelColored7" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 227 )
+panel_color = Color( 0.764706, 0.231373, 0.231373, 1 )
+
+[node name="PanelColored8" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 245 )
+panel_color = Color( 0.396078, 0.788235, 0.341176, 1 )
+
+[node name="PanelColored9" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 263 )
+panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )
+
+[node name="PanelColored10" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 281 )
+panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )

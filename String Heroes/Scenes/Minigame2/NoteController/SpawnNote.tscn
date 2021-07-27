@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Minigame2/NoteController/SpawnNote.gd" type="Script" id=1]
+
+[node name="SpawnNote" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Spawner1" type="Position2D" parent="."]
+
+[node name="Spawner2" type="Position2D" parent="."]
+position = Vector2( 0, 18 )
+
+[node name="Spawner3" type="Position2D" parent="."]
+position = Vector2( 0, 36 )
+
+[node name="Spawner4" type="Position2D" parent="."]
+position = Vector2( 0, 54 )
+
+[node name="Spawner5" type="Position2D" parent="."]
+position = Vector2( 0, 72 )
+
+[node name="Spawner6" type="Position2D" parent="."]
+position = Vector2( 0, 90 )
+
+[node name="Spawner7" type="Position2D" parent="."]
+position = Vector2( 0, 108 )
+
+[node name="Spawner8" type="Position2D" parent="."]
+position = Vector2( 0, 126 )
+
+[node name="Spawner9" type="Position2D" parent="."]
+position = Vector2( 0, 144 )
+
+[node name="Spawner10" type="Position2D" parent="."]
+position = Vector2( 0, 162 )
+
+[node name="Spawner11" type="Position2D" parent="."]
+position = Vector2( 0, 180 )
