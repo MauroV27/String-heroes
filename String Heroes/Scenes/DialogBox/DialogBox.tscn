@@ -79,6 +79,7 @@ __meta__ = {
 }
 
 [node name="Character_body" type="Sprite" parent="."]
+visible = false
 position = Vector2( 640, 400 )
 texture = ExtResource( 5 )
 

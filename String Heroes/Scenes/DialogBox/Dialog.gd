@@ -71,11 +71,13 @@ func next_phrase() -> void:
 	
 	if dialog[phraseNum]["type"] == "icon":
 		$DialogBox/Character_icon.visible = true
+		$Character_body.visible = false
 		$DialogBox/Character_icon.texture = load(img)
 		$DialogBox/Text.rect_size = TEXT_SIZE_ICON
 		animation_type = "icon_move"
 	else:
 		$Character_body.visible = true
+		$DialogBox/Character_icon.visible = false
 		$Character_body.texture = load(img)
 		$DialogBox/Text.rect_size = TEXT_SIZE_BODY
 		animation_type = "body_move"
