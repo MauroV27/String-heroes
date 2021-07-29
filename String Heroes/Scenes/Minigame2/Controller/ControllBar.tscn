@@ -68,3 +68,9 @@ panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )
 [node name="PanelColored10" parent="Panels" instance=ExtResource( 1 )]
 position = Vector2( 20, 281 )
 panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )
+
+[node name="PanelColored11" parent="Panels" instance=ExtResource( 1 )]
+position = Vector2( 20, 299 )
+panel_color = Color( 0.45098, 0.541176, 0.784314, 1 )
+
+[node name="NoteSound" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fá.mp3-b180352f18e82d853cb7eb76a0ed8688.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Note_sounds/Fá.mp3"
+dest_files=[ "res://.import/Fá.mp3-b180352f18e82d853cb7eb76a0ed8688.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

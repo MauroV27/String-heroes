@@ -4,7 +4,7 @@ export(Color) var panel_color = Color(1, 1, 1, 1)
 
 var button_pressed : bool = false
 
-#signal update_scores
+signal note_sound
 
 func _ready() -> void:	
 	var color_hover = StyleBoxFlat.new()

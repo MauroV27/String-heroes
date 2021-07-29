@@ -6,12 +6,16 @@ export(String) var next_screen = ""
 
 const FILE_DIRECTORY = "res://Assets/Arts/"
 
+const TEXT_SIZE_ICON = Vector2(765, 100) 
+const TEXT_SIZE_BODY = Vector2(1030, 100)
+
 var dialog
 
-var phraseNum = 0
-var finished = false
+var phraseNum := 0
+var finished := false
+var finished_dialog := false
 
-var finished_dialog = false
+var animation_type : String
 
 signal change_screen(new_scene)
 
@@ -21,18 +25,15 @@ func _ready() -> void:
 	$DialogBox/Timer.wait_time = textSpeed
 	dialog = get_dialog(dialogPath)
 	assert(dialog, "Dialog not found")
-	
-#	next_phrase()
 
 func start_dialog() -> void:
 	set_process(true)
 	next_phrase()
-	pass
 
 func _process(delta: float) -> void:
 	$DialogBox/icon.visible = finished
 	if finished:
-		$DialogBox/AnimationPlayer.current_animation = "icon_move"
+		$DialogBox/AnimationPlayer.current_animation = animation_type
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		if finished:
@@ -66,12 +67,20 @@ func next_phrase() -> void:
 	
 	finished = false
 	
-#	$Name.bbcode_text = dialog[phraseNum]["Name"]
 	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/" + dialog[phraseNum]["type"] + "/" + dialog[phraseNum]["image"]
-	$DialogBox/Character_icon.texture = load(img)
+	
+	if dialog[phraseNum]["type"] == "icon":
+		$DialogBox/Character_icon.visible = true
+		$DialogBox/Character_icon.texture = load(img)
+		$DialogBox/Text.rect_size = TEXT_SIZE_ICON
+		animation_type = "icon_move"
+	else:
+		$Character_body.visible = true
+		$Character_body.texture = load(img)
+		$DialogBox/Text.rect_size = TEXT_SIZE_BODY
+		animation_type = "body_move"
 	
 	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 
-	
 	$DialogBox/Text.visible_characters = 0
 	
 	while $DialogBox/Text.visible_characters < len($DialogBox/Text.text):
@@ -82,5 +91,3 @@ func next_phrase() -> void:
 	
 	phraseNum += 1
 	finished = true
-	return
-	

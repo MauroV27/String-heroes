@@ -19,16 +19,17 @@ const POINT_VALUES = {
 func _on_Button_play_game_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:
 		cam.set_cam_target(SCREENS.game)
+		$GameConcerto/SpawnNote/Timer.start()
 
 func _on_SpawnNote_update_scores(dist_note_panel) -> void:
 	if dist_note_panel < 5:
 		scores += POINT_VALUES.perfect
-		print("perfect")
+#		print("perfect")
 	elif dist_note_panel < 10:
 		scores += POINT_VALUES.good
-		print("good")
+#		print("good")
 	else:
 		scores += POINT_VALUES.ok
-		print("ok")
+#		print("ok")
 		
 	$GameConcerto/Scores.text = "%05d" % scores
