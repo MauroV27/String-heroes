@@ -22,6 +22,8 @@ func _on_Button_end_game_pressed() -> void:
 	cam.set_cam_target(SCREENS.fala2)
 	$Fala2/Dialog.start_dialog()
 
-func _on_Dialog_change_screen(new_scene) -> void:
-	ControllView._change_scene("res://Scenes/Minigame2/Minigame2.tscn", "fade")
-	pass # Replace with function body.
+func _change_screen(new_scene) -> void:
+	if new_scene == "game":
+		cam.set_cam_target(SCREENS.game)
+	if new_scene == "next_scene":
+		ControllView._change_scene("res://Scenes/Minigame2/Minigame2.tscn", "fade")

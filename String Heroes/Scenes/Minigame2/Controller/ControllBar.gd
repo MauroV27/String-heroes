@@ -1,22 +1,25 @@
 extends Control
 
-const NOTE_FILES = {
-	"FA": "res://Assets/Sounds/Note_sounds/Fá.mp3",
+const NOTES = ["SOL", "FA", "MI", "RE", "DO", "SI", "LA"]
+
+const NOTE_COLOR = {
+	"DO" : Color("#2a327f"),
+	"RE" : Color("#009f47"),
+	"MI" : Color("#f6e95f"),
+	"FA" : Color("#e78d37"),
+	"SOL": Color("#d82b2e"),
+	"LA" : Color("#c42c82"), 
+	"SI" : Color("#812c7c"),
 }
 
+var initial_note = 0
+
 func _ready() -> void:
+	var note = initial_note
 	for panel in $Panels.get_children():
-		panel.connect("note_sound", self, "actiavte_sound")
-
-func actiavte_sound(note_sound:String) -> void:
-#	var path = NOTE_FILES[note_sound]
-#	var file = File.new()
-#	if file.file_exists(path):
-#		file.open(path, file.READ)
-#		var buffer = file.get_buffer(file.get_len())
-#		var stream = AudioStreamMP3.new()
-#		stream.data = buffer
-#		$NoteSound.stream = stream
-#		$NoteSound.play()
-	pass
-
+#		panel.connect("note_sound", self, "actiavte_sound")
+		panel.panel_color = NOTE_COLOR[NOTES[note]]
+		panel._ready()
+		note += 1 
+		if note >= len(NOTE_COLOR):
+			note = 0

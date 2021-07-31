@@ -6,9 +6,6 @@ export(String) var next_screen = ""
 
 const FILE_DIRECTORY = "res://Assets/Arts/"
 
-const TEXT_SIZE_ICON = Vector2(765, 100) 
-const TEXT_SIZE_BODY = Vector2(1030, 100)
-
 var dialog
 
 var phraseNum := 0
@@ -55,7 +52,6 @@ func get_dialog(dialog_ : String) -> Array:
 	else:
 		return []
 
-
 func next_phrase() -> void:
 	if phraseNum >= len(dialog):
 		if next_screen != "":
@@ -67,20 +63,12 @@ func next_phrase() -> void:
 	
 	finished = false
 	
-	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/" + dialog[phraseNum]["type"] + "/" + dialog[phraseNum]["image"]
+	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/body/" + dialog[phraseNum]["image"]
 	
-	if dialog[phraseNum]["type"] == "icon":
-		$DialogBox/Character_icon.visible = true
-		$Character_body.visible = false
-		$DialogBox/Character_icon.texture = load(img)
-#		$DialogBox/Text.rect_size = TEXT_SIZE_ICON
-		animation_type = "icon_move"
-	else:
-		$Character_body.visible = true
-		$DialogBox/Character_icon.visible = false
-		$Character_body.texture = load(img)
-#		$DialogBox/Text.rect_size = TEXT_SIZE_BODY
-		animation_type = "body_move"
+	$Character_body.visible = true
+	$DialogBox/Character_icon.visible = false
+	$Character_body.texture = load(img)
+	animation_type = "body_move"
 	
 	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 
 	$DialogBox/Text.visible_characters = 0
@@ -93,8 +81,3 @@ func next_phrase() -> void:
 	
 	phraseNum += 1
 	finished = true
-
-
-
-
-

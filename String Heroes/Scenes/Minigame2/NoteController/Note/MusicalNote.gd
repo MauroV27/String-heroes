@@ -2,7 +2,7 @@ extends Area2D
 
 const SPEED = -200
 
-const DATA_NOTE = {
+const NOTE_COLOR = {
 	"DO" : Color("#2a327f"),
 	"RE" : Color("#009f47"),
 	"MI" : Color("#f6e95f"),
@@ -13,8 +13,13 @@ const DATA_NOTE = {
 }
 
 const NOTE_FILES = {
+	"DO": "res://Assets/Sounds/Note_sounds/Do.mp3",
+	"RE": "res://Assets/Sounds/Note_sounds/Ré.mp3",
+	"MI": "res://Assets/Sounds/Note_sounds/Mi.mp3",
 	"FA": "res://Assets/Sounds/Note_sounds/Fá.mp3",
-	"DO": "res://Assets/Sounds/Note_sounds/Dó2.mp3"
+	"SOL": "res://Assets/Sounds/Note_sounds/Sol.mp3",
+	"LA" : "res://Assets/Sounds/Note_sounds/Lá.mp3",
+	"SI" : "res://Assets/Sounds/Note_sounds/Si.mp3",
 }
 
 var note : String
@@ -22,20 +27,18 @@ var note : String
 func define_note(note_position: Vector2, note_type:String) -> void:
 	global_position = note_position
 	note = note_type
-	$ColorRect.color = DATA_NOTE[note]
+	$ColorRect.color = NOTE_COLOR[note]
 	pass
 
 func _process(delta: float) -> void:
 	position.x += SPEED * delta
 	if global_position.x <= 100:
 		queue_free()
-	pass
 
 func _on_MusicalNote_area_entered(area: Area2D) -> void:
 	if area.is_in_group("panel_pressed"):
 		var dist = area.global_position - global_position
 		get_parent().submit_distance_collide(abs(dist.x))
-#		area.emit_signal("note_sound", "FA")
 		play_note_sound(note)
 
 func play_note_sound(note_name:String) ->void:

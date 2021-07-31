@@ -97,6 +97,7 @@ __meta__ = {
 margin_right = 1280.0
 margin_bottom = 720.0
 dialogPath = "res://Assets/Dialogs/dialogTutorial_1.json"
+next_screen = "game"
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2( 1280, 0 )
@@ -227,9 +228,10 @@ __meta__ = {
 
 [node name="Dialog" parent="Fala2" instance=ExtResource( 4 )]
 dialogPath = "res://Assets/Dialogs/dialogScene_2.json"
-next_screen = "tutorial1"
+next_screen = "next_scene"
 
 [connection signal="pressed" from="Initial/Button_start_game" to="." method="_on_Button_start_game_pressed"]
+[connection signal="change_screen" from="Initial/Dialog" to="." method="_change_screen"]
 [connection signal="pressed" from="game/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Final/Button_end_game" to="." method="_on_Button_end_game_pressed"]
-[connection signal="change_screen" from="Fala2/Dialog" to="." method="_on_Dialog_change_screen"]
+[connection signal="change_screen" from="Fala2/Dialog" to="." method="_change_screen"]
