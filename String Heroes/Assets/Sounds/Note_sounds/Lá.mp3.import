@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lá.mp3-173ff389c851c6cbe5cd01db61860595.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Note_sounds/Lá.mp3"
+dest_files=[ "res://.import/Lá.mp3-173ff389c851c6cbe5cd01db61860595.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
