@@ -16,7 +16,7 @@ func update_clave_life(value:int) -> void:
 		emit_signal("end_game", false)
 
 func update_clave_view() -> void:
-	$Sprite.frame = int(floor((MAX_LIFE - currently_life) / 4))
+	$Sprite.frame = int(floor((MAX_LIFE - currently_life) / 4.0))
 
 func _on_Clave_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Note"):

@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Arts/Clarissa/Icon/default.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/DialogBox/DialogNovel.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sounds/Musics/musica da tela de fala.mp3" type="AudioStream" id=6]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.960784, 0.921569, 0.964706, 1 )
 border_width_bottom = 8
 border_color = Color( 0.831373, 0.764706, 0.839216, 1 )
@@ -91,7 +92,7 @@ margin_top = -9.99994
 margin_right = 64.9998
 margin_bottom = 30.0002
 rect_pivot_offset = Vector2( 575, 80 )
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -143,5 +144,8 @@ custom_styles/normal = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="pressed" from="DialogBox/Button_dialog" to="." method="_on_Button_dialog_pressed"]

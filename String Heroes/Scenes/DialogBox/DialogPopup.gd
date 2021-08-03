@@ -1,57 +1,13 @@
-extends Control
+extends "res://Scenes/DialogBox/Dialog.gd"
 
-export var dialogPath = ""
-export(float) var textSpeed = 0.05
-export(String) var next_screen = ""
-
-const FILE_DIRECTORY = "res://Assets/Arts/"
-
-var dialog
-
-var phraseNum := 0
-var finished := false
-var finished_dialog := false
-
-var animation_type : String
+var dialog_is_running : bool = true
 
 signal change_screen(new_scene)
 
-func _ready() -> void:
-	set_process(false)
-	
-	$DialogBox/Timer.wait_time = textSpeed
-	dialog = get_dialog(dialogPath)
-	assert(dialog, "Dialog not found")
-
-func start_dialog() -> void:
-	set_process(true)
-	next_phrase()
-
 func _process(delta: float) -> void:
-	$DialogBox/icon.visible = finished
-	if finished:
+	$DialogBox/icon.visible = (finished and dialog_is_running)
+	if finished and dialog_is_running:
 		$DialogBox/AnimationPlayer.current_animation = animation_type
-
-func _on_Button_dialog_pressed() -> void:
-	if finished:
-		next_phrase()
-	else:
-		$DialogBox/Text.visible_characters = len($DialogBox/Text.text)
-
-func get_dialog(dialog_ : String) -> Array:
-	var f = File.new()
-	assert(f.file_exists(dialog_), "This file not exist.")
-	
-	f.open(dialogPath, File.READ)
-	var json = f.get_as_text()
-	
-	var output = parse_json(json)
-	
-	if typeof(output) == TYPE_ARRAY:
-		return output
-	else:
-		return []
-
 
 func next_phrase() -> void:
 	if phraseNum >= len(dialog):
@@ -62,13 +18,16 @@ func next_phrase() -> void:
 			queue_free()
 		return
 	
+	if not dialog_is_running:
+		return
+	
 	finished = false
 	
 	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/icon/" + dialog[phraseNum]["image"]
 	
 	$DialogBox/Character_icon.visible = true
-	$Character_body.visible = false
 	$DialogBox/Character_icon.texture = load(img)
+	dialog_is_running = dialog[phraseNum]["continue"]
 	animation_type = "icon_move"
 	
 	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 
@@ -83,8 +42,6 @@ func next_phrase() -> void:
 	phraseNum += 1
 	finished = true
 
-
-
-
-
-
+func _on_PuzzleController_part_add() -> void:
+	dialog_is_running = true
+	next_phrase()
