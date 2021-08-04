@@ -14,4 +14,30 @@ O principal objetivo da aplicação é proporcionar uma opção de ensino que at
 - Nicolas Barbosa
 - Vitor Santos
 
-## 
+## Cliente do projeto:
+- Professora Liu Man Ying, coordenadora do Curso de Ensino Coletivo de Cordas Friccionadas da UFC.
+
+## Mapa de funcionalidades:
+### Funções básicas:
+<table>
+  <tr> <td>Funções</td><td>Local</td> </tr>
+  <tr> <td>RF_B1: Iniciar novo jogo </td><td>Menu.gd</td> </tr>
+  <tr> <td>RF_B2: Escolha do modo de  jogo </td><td>GameSelector.gd && IconButtons.gd</td> </tr>
+</table>
+
+### Funções fundamentais:
+<table>
+  <tr> <td>Funções</td><td>Local</td> </tr>
+  <tr> <td>RF_F1: Transição de telas </td><td>Control_view.gd && Camera.gd</td> </tr>
+  <tr> <td>RF_F2: Modo história </td><td>HistoryMode.gd && Minigame1.gd && concerto.gd</td> </tr>
+  <tr> <td>RF_F3: Jogo Quebra cabeças </td><td>OnlyPuzzle.gd</td> </tr>
+  <tr> <td>RF_F4: Jogo Concerto </td><td>concerto.gd</td> </tr>
+  <tr> <td>RF_F5: Sistema de pause </td><td>Pause.gd</td> </tr>
+</table>
+
+### Funções de saída:
+<table>
+  <tr> <td>Funções</td><td>Local</td> </tr>
+  <tr> <td>RF_S1: Sistema de diálogos </td><td> Dialog.gd && ( DialogPopup.gd || DialogNovel.gd ) </td> </tr>
+  <tr> <td>RF_S2: Sair do jogo e voltar ao menu </td><td> Pause.gd && Control_view.gd </td> </tr>
+</table>
