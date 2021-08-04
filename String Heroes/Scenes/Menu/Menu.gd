@@ -1,5 +1,10 @@
 extends Control
 
+"""
+	Responsavel por controlar as 3 primeiras telas do jogo:
+	a tela inicial, a tela de seleção de jogo e a tela de créditos.
+"""
+
 onready var cam = $Camera
 
 const SCREENS = {

@@ -109,7 +109,6 @@ __meta__ = {
 }
 
 [node name="Dialog" parent="Fala2" instance=ExtResource( 4 )]
-dialogName = "dialogScene_3.json"
 next_screen = "next_scene"
 
 [connection signal="change_screen" from="Initial/Dialog" to="." method="_change_screen"]

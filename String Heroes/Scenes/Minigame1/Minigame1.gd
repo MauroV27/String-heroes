@@ -1,5 +1,10 @@
 extends Node2D
 
+"""
+	Controlador da segunda parte do modo história.
+	Possui funções de ativação dos dialogos e do minigame 1
+"""
+
 onready var cam = $Camera
 
 var SCREENS = {
@@ -9,7 +14,7 @@ var SCREENS = {
 	"fala2"	  : Vector2(3840, 0),
 }
 
-func _ready() -> void:
+func _ready() -> void:	
 	$Initial/Dialog.start_dialog()
 	$game/DialogPopup.connect("change_screen", self, "_change_screen")
 
