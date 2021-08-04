@@ -24,6 +24,7 @@ __meta__ = {
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="NoteAudio" type="AudioStreamPlayer" parent="."]
+[node name="NoteSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_MusicalNote_area_entered"]
+[connection signal="finished" from="NoteSound" to="." method="_on_NoteSound_finished"]

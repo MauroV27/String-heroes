@@ -8,12 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Control",
+"class": "DialogSystem",
+"language": "GDScript",
+"path": "res://Scenes/DialogBox/Dialog.gd"
+} ]
+_global_script_class_icons={
+"DialogSystem": ""
+}
+
 [application]
 
 config/name="String Heroes"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
 boot_splash/image="res://Assets/UI/Menus/Screens/Tela_inicial.png"
-config/icon="res://icon.png"
+config/icon="res://default.png"
 
 [autoload]
 
@@ -42,4 +52,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

@@ -2,6 +2,7 @@
 Work done for the subject of Project 1 of the SMD course (UFC)
 
 Status do projeto: Em desenvolvimento ⚠️
+> Versão atual: 0.1.5
 
 ## Objetivo do projeto:
 O principal objetivo da aplicação é proporcionar uma opção de ensino que atenda às necessidades tanto do cliente, que possui dificuldades quanto ao acompanhamento dos alunos e de materiais voltados para crianças, como dos alunos em si, os quais necessitam de conteúdos que possam ser aproveitados além dos acompanhamentos nas aulas e de forma atrativa.

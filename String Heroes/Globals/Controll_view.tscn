@@ -56,3 +56,5 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 anims/fade = SubResource( 1 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]

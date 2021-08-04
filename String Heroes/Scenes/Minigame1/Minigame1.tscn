@@ -1,36 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Concerto/Interface_Concerto.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/DialogBox/DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Minigame1/Minigame1.gd" type="Script" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 48
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-corner_radius_top_left = 29
-corner_radius_top_right = 29
-corner_radius_bottom_right = 29
-corner_radius_bottom_left = 29
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-corner_radius_top_left = 29
-corner_radius_top_right = 29
-corner_radius_bottom_right = 29
-corner_radius_bottom_left = 29
-
-[sub_resource type="DynamicFont" id=5]
-size = 40
-font_data = ExtResource( 1 )
+[ext_resource path="res://Scenes/Minigame1/PuzzleController/PuzzleController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/UI/Background/fundo quebra cabeça estilizado 1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/Background/scene_dialog_1.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/DialogBox/DialogPopup.tscn" type="PackedScene" id=9]
 
 [node name="Minigame1" type="Node2D"]
 script = ExtResource( 5 )
@@ -49,54 +26,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Initial"]
+[node name="ColorRect" type="TextureRect" parent="Initial"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0.831373, 0.764706, 0.839216, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Initial"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-text = "Intruções sobre o jogo 
-de quebra cabeças."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button_start_game" type="Button" parent="Initial"]
-anchor_left = 0.353125
-anchor_top = 0.752778
-anchor_right = 0.641406
-anchor_bottom = 0.834722
-margin_left = 458.0
-margin_top = 540.0
-margin_right = 827.0
-margin_bottom = 599.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
-text = "Iniciar jogo"
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
+texture = ExtResource( 8 )
 
 [node name="Dialog" parent="Initial" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 1280.0
 margin_bottom = 720.0
-dialogPath = "res://Assets/Dialogs/dialogTutorial_1.json"
+dialogName = "dialogTutorial_1.json"
+next_screen = "game"
 
 [node name="game" type="Node2D" parent="."]
 position = Vector2( 1280, 0 )
@@ -105,52 +48,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="background" type="Sprite" parent="game"]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="game"]
+[node name="background" type="TextureRect" parent="game"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
-color = Color( 0.831373, 0.764706, 0.839216, 1 )
+mouse_filter = 2
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="game"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="PuzzleController" parent="game" instance=ExtResource( 6 )]
+position = Vector2( 0, -50 )
+
+[node name="DialogPopup" parent="game" instance=ExtResource( 9 )]
 margin_right = 1280.0
 margin_bottom = 720.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-text = "Aqui fica o jogo
-Quebra-cabeças"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="game"]
-anchor_left = 0.353125
-anchor_top = 0.752778
-anchor_right = 0.641406
-anchor_bottom = 0.834722
-margin_left = 458.0
-margin_top = 540.0
-margin_right = 827.0
-margin_bottom = 599.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "Continuar [debug]"
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
+dialogName = "puzzleViolin.json"
+next_screen = "end"
 
 [node name="Final" type="Control" parent="."]
 anchor_right = 1.0
@@ -162,49 +76,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Final"]
+[node name="ColorRect" type="TextureRect" parent="Final"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1280.0
 margin_bottom = 720.0
-color = Color( 0.831373, 0.764706, 0.839216, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 8 )
 
-[node name="Label" type="Label" parent="Final"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="DialogNovel" parent="Final" instance=ExtResource( 4 )]
 margin_right = 1280.0
 margin_bottom = 720.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-text = "Tela de parabenização
-por ter completado o jogo."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button_end_game" type="Button" parent="Final"]
-anchor_left = 0.353125
-anchor_top = 0.752778
-anchor_right = 0.641406
-anchor_bottom = 0.834722
-margin_left = 458.0
-margin_top = 540.0
-margin_right = 827.0
-margin_bottom = 599.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
-text = "Continuar [debug]"
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
+dialogName = "puzzleCongrats.json"
+next_screen = "fala2"
 
 [node name="Fala2" type="Control" parent="."]
 anchor_right = 1.0
@@ -226,10 +109,10 @@ __meta__ = {
 }
 
 [node name="Dialog" parent="Fala2" instance=ExtResource( 4 )]
-dialogPath = "res://Assets/Dialogs/dialogScene_2.json"
-next_screen = "tutorial1"
+next_screen = "next_scene"
 
-[connection signal="pressed" from="Initial/Button_start_game" to="." method="_on_Button_start_game_pressed"]
-[connection signal="pressed" from="game/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Final/Button_end_game" to="." method="_on_Button_end_game_pressed"]
-[connection signal="change_screen" from="Fala2/Dialog" to="." method="_on_Dialog_change_screen"]
+[connection signal="change_screen" from="Initial/Dialog" to="." method="_change_screen"]
+[connection signal="game_complete" from="game/PuzzleController" to="." method="_on_PuzzleController_game_complete"]
+[connection signal="part_add" from="game/PuzzleController" to="game/DialogPopup" method="_on_PuzzleController_part_add"]
+[connection signal="change_screen" from="Final/DialogNovel" to="." method="_change_screen"]
+[connection signal="change_screen" from="Fala2/Dialog" to="." method="_change_screen"]

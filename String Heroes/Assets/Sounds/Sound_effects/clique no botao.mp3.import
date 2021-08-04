@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/clique no botao.mp3-23e26c6620f809ee1753493bde065c0c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Sound_effects/clique no botao.mp3"
+dest_files=[ "res://.import/clique no botao.mp3-23e26c6620f809ee1753493bde065c0c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Si.mp3-e656d6cb1edff46c8063c724f6008a65.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Note_sounds/Si.mp3"
+dest_files=[ "res://.import/Si.mp3-e656d6cb1edff46c8063c724f6008a65.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

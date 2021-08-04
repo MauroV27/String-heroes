@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Do.mp3-5207415084b1c107f36d634b08ef846e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Note_sounds/Do.mp3"
+dest_files=[ "res://.import/Do.mp3-5207415084b1c107f36d634b08ef846e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

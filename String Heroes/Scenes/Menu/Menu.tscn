@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/UI/Menus/Screens/Tela_inicial.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UI/Menus/Screens/Tela_menu.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Assets/UI/Menus/Icons/icon_concerto_game_deselected.png" type="Texture" id=13]
 [ext_resource path="res://Assets/UI/Menus/Icons/icon_puzzle_game_deselected.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Arts/Clarissa/Icon/default.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sounds/Sound_effects/clique no botao.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/Musics/musica da tela inicial.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Scenes/Minigame1/OnlyPuzzle.tscn" type="PackedScene" id=18]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
@@ -27,32 +30,36 @@ corner_radius_bottom_left = 29
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 29
 corner_radius_top_right = 29
 corner_radius_bottom_right = 29
 corner_radius_bottom_left = 29
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 48
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 29
 corner_radius_top_right = 29
 corner_radius_bottom_right = 29
 corner_radius_bottom_left = 29
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 20
 font_data = ExtResource( 7 )
 
@@ -126,6 +133,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Label" type="Label" parent="Inicial"]
+modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
+anchor_top = 0.959722
+anchor_right = 0.180469
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "String Heroes - alfa 0.1.5"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Seletor" type="Control" parent="."]
 margin_left = 1280.0
 margin_right = 2560.0
@@ -156,9 +174,9 @@ __meta__ = {
 [node name="HScrollBar" type="HScrollBar" parent="Seletor"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/grabber = SubResource( 3 )
-custom_styles/scroll = SubResource( 3 )
-custom_styles/grabber_pressed = SubResource( 3 )
+custom_styles/grabber = SubResource( 4 )
+custom_styles/scroll = SubResource( 4 )
+custom_styles/grabber_pressed = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -219,6 +237,7 @@ margin_right = 1075.0
 margin_bottom = 400.0
 rect_scale = Vector2( 1, 1 )
 item_name = "Quebra-cabeça"
+go_to_scene = ExtResource( 18 )
 texture_normal = ExtResource( 14 )
 texture_hover = ExtResource( 11 )
 
@@ -231,10 +250,10 @@ margin_left = -0.000671387
 margin_top = -0.000305176
 margin_right = -0.000610352
 margin_bottom = -0.000305176
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Créditos"
 __meta__ = {
 "_edit_use_anchors_": true,
@@ -268,7 +287,7 @@ margin_left = -91.5
 margin_top = -28.5
 margin_right = 91.5
 margin_bottom = 28.5
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Créditos"
 align = 1
 valign = 1
@@ -281,10 +300,10 @@ anchor_left = 0.441406
 anchor_top = 0.930556
 anchor_right = 0.558594
 anchor_bottom = 0.972222
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 7 )
-custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Voltar ao menu"
 __meta__ = {
 "_edit_use_anchors_": true,
@@ -315,7 +334,7 @@ anchor_left = 0.408594
 anchor_top = 0.460417
 anchor_right = 0.595312
 anchor_bottom = 0.539583
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Loading. . ."
 align = 1
 valign = 1
@@ -333,13 +352,21 @@ margin_left = -108.5
 margin_top = 21.5
 margin_right = 108.5
 margin_bottom = 78.5
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "undefined"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -12.0
+
+[node name="music_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -8.0
 
 [connection signal="pressed" from="Inicial/Button_jogar" to="." method="_on_Button_menu_pressed"]
 [connection signal="seletor_button_pressed" from="Seletor/HScrollBar/GameSelector" to="." method="_on_GameSelector_seletor_button_pressed"]

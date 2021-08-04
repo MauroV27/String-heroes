@@ -3,8 +3,8 @@ extends Control
 export(String) var item_name = "Text"
 export(bool) var item_focus = false
 export(PackedScene) var go_to_scene = null
-export(Texture) var texture_normal #= "res://Assets/UI/Menus/Icons/imagem_placeholder_disabled.png"
-export(Texture) var texture_hover #= "res://Assets/UI/Menus/Icons/imagem_placeholder_enabled.png"
+export(Texture) var texture_normal 
+export(Texture) var texture_hover 
 
 func _ready() -> void:
 	$item_name.text = item_name
@@ -26,6 +26,7 @@ func effect_controller(value:float, scale:float) -> void:
 
 func _on_Icon_button_pressed() -> void:
 	get_parent().button_pressed_to_scene(go_to_scene)
+	$sound_button_pressed.play()
 
 func update_status_icon(itens:Dictionary) -> void:
 	item_focus = itens[item_name]

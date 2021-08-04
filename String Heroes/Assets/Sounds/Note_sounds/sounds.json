@@ -1,0 +1,9 @@
+{
+	"DO": "res://Assets/Sounds/Note_sounds/Do.mp3",
+	"RE": "res://Assets/Sounds/Note_sounds/Ré.mp3",
+	"MI": "res://Assets/Sounds/Note_sounds/Mi.mp3",
+	"FA": "res://Assets/Sounds/Note_sounds/Fá.mp3",
+	"SOL": "res://Assets/Sounds/Note_sounds/Sol.mp3",
+	"LA" : "res://Assets/Sounds/Note_sounds/Lá.mp3",
+	"SI" : "res://Assets/Sounds/Note_sounds/Si.mp3",
+}

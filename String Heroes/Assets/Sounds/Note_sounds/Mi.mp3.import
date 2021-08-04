@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mi.mp3-8d6319407e6f0648c88cfc91f58ef0f6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Note_sounds/Mi.mp3"
+dest_files=[ "res://.import/Mi.mp3-8d6319407e6f0648c88cfc91f58ef0f6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

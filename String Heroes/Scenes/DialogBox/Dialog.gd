@@ -1,52 +1,55 @@
 extends Control
+class_name DialogSystem
 
-export var dialogPath = ""
+"""
+	Código base para o sistema de dialogo do jogo.
+	É usado nos scripts : DialogNovel.gd e DialogPopup.gd
+"""
+
+export var dialogName = ""
 export(float) var textSpeed = 0.05
 export(String) var next_screen = ""
 
-const FILE_DIRECTORY = "res://Assets/Arts/"
+const FILE_DIRECTORY = "res://.import/"#"res://Assets/Arts/"#
+const DIALOG_DIRECTORY = "res://Assets/Dialogs/"
 
-var dialog
+var dialog : Array 
 
-var phraseNum = 0
-var finished = false
+var phraseNum := 0
+var finished := false
+var finished_dialog := false
 
-var finished_dialog = false
-
-signal change_screen(new_scene)
+var animation_type : String
 
 func _ready() -> void:
 	set_process(false)
 	
 	$DialogBox/Timer.wait_time = textSpeed
-	dialog = get_dialog(dialogPath)
+	dialog = get_dialog(dialogName)
 	assert(dialog, "Dialog not found")
-	
-#	next_phrase()
 
 func start_dialog() -> void:
 	set_process(true)
 	next_phrase()
-	pass
 
 func _process(delta: float) -> void:
 	$DialogBox/icon.visible = finished
 	if finished:
-		$DialogBox/AnimationPlayer.current_animation = "icon_move"
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		if finished:
-			next_phrase()
-		else:
-			$DialogBox/Text.visible_characters = len($DialogBox/Text.text)
+		$DialogBox/AnimationPlayer.current_animation = animation_type
+
+func _on_Button_dialog_pressed() -> void:
+	if finished:
+		next_phrase()
+	else:
+		$DialogBox/Text.visible_characters = len($DialogBox/Text.text)
 
 func get_dialog(dialog_ : String) -> Array:
+	var dialog_file = DIALOG_DIRECTORY + dialog_
 	var f = File.new()
-	assert(f.file_exists(dialog_), "This file not exist.")
+	assert(f.file_exists(dialog_file), "This file not exist.")
 	
-	f.open(dialogPath, File.READ)
+	f.open(dialog_file, File.READ)
 	var json = f.get_as_text()
-	
 	var output = parse_json(json)
 	
 	if typeof(output) == TYPE_ARRAY:
@@ -54,33 +57,5 @@ func get_dialog(dialog_ : String) -> Array:
 	else:
 		return []
 
-
 func next_phrase() -> void:
-	if phraseNum >= len(dialog):
-		if next_screen != "":
-			emit_signal("change_screen", next_screen)
-			set_process(false)
-		else:
-			queue_free()
-		return
-	
-	finished = false
-	
-#	$Name.bbcode_text = dialog[phraseNum]["Name"]
-	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/" + dialog[phraseNum]["type"] + "/" + dialog[phraseNum]["image"]
-	$DialogBox/Character_icon.texture = load(img)
-	
-	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 
-	
-	$DialogBox/Text.visible_characters = 0
-	
-	while $DialogBox/Text.visible_characters < len($DialogBox/Text.text):
-		$DialogBox/Text.visible_characters += 1
-		
-		$DialogBox/Timer.start()
-		yield($DialogBox/Timer, "timeout")
-	
-	phraseNum += 1
-	finished = true
-	return
-	
+	pass

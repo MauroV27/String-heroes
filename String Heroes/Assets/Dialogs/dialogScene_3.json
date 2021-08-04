@@ -1,0 +1,38 @@
+[
+	{
+	"type": "body",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "[wave amp=50 freq=2]Não acredito! É a Marianna mesmo! preciso agir normalmente[/wave]",
+	},
+	{
+	"type": "body",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Então você é a promissora Clarissa que tenho ouvido falar?",
+	},
+	{
+	"type": "body",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Promissora…? Quer dizer, sou eu sim",
+	},
+	{
+	"type": "body",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Bom, Clarissa, está pronta?",
+	},
+	{
+	"type": "body",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Eu nasci pronta!",
+	},
+{
+	"type": "body",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Vamos fazer um ensaio antes. Use o mouse para tocar as notas quando elas estiverem em cima da barra preta",
+	},
+]
