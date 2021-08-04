@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 		_new_scene()
 
 func _change_music(new_music:String) -> void:
-	var music = AudioStreamMP3.new()
-	music.resource_path = new_music
-	$music.stream = music
-	$music.play()
+#	var music = AudioStreamMP3.new()
+#	music.resource_path = new_music
+#	$music.stream = music
+#	$music.play()
+	pass
