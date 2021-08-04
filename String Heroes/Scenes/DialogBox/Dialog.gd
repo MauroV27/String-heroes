@@ -1,11 +1,16 @@
 extends Control
 class_name DialogSystem
 
+"""
+	Código base para o sistema de dialogo do jogo.
+	É usado nos scripts : DialogNovel.gd e DialogPopup.gd
+"""
+
 export var dialogName = ""
 export(float) var textSpeed = 0.05
 export(String) var next_screen = ""
 
-const FILE_DIRECTORY = "res://Assets/Arts/"
+const FILE_DIRECTORY = "res://.import/"#"res://Assets/Arts/"#
 const DIALOG_DIRECTORY = "res://Assets/Dialogs/"
 
 var dialog : Array 

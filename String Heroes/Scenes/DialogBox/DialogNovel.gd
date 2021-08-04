@@ -1,6 +1,8 @@
 extends "res://Scenes/DialogBox/Dialog.gd"
 # Usa os códigos de Dialog.gd como base
 
+onready var bodys = $Character_body
+
 signal change_screen(new_scene)
 
 func start_dialog() -> void:
@@ -20,11 +22,19 @@ func next_phrase() -> void:
 	
 	finished = false
 	
-	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/body/" + dialog[phraseNum]["image"]
+#	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/Body/" + dialog[phraseNum]["image"]
 	
 	$Character_body.visible = true
 	$DialogBox/Character_icon.visible = false
-	$Character_body.texture = load(img)
+	
+	#Gambiarra para as imaagesn aparecerem, posteriormente será atualizada:
+	if dialog[phraseNum]["character"] == "Clarissa":
+		bodys._update_texture(0)
+	elif dialog[phraseNum]["character"] == "Marianna":
+		bodys._update_texture(1)
+	else:
+		print("O nome ", dialog[phraseNum]["character"], "gerou um valor invalido :(")
+	
 	animation_type = "body_move"
 	
 	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 

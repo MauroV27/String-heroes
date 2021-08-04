@@ -23,11 +23,15 @@ func next_phrase() -> void:
 	
 	finished = false
 	
-	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/icon/" + dialog[phraseNum]["image"]
+#	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/Icon/" + dialog[phraseNum]["image"]
 	
 	$DialogBox/Character_icon.visible = true
-	$DialogBox/Character_icon.texture = load(img)
-	dialog_is_running = dialog[phraseNum]["continue"]
+#	if ResourceLoader.exists(img):
+#		var texture = ImageTexture.new();
+#		var image = Image.new();
+#		image.load(img);
+#		$DialogBox/Character_icon.texture = image
+#	dialog_is_running = dialog[phraseNum]["continue"]
 	animation_type = "icon_move"
 	
 	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 
