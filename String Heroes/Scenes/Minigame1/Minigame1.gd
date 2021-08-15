@@ -14,7 +14,8 @@ var SCREENS = {
 	"fala2"	  : Vector2(3840, 0),
 }
 
-func _ready() -> void:	
+func _ready() -> void:
+	Pause.set_pause_state(true)
 	$Initial/Dialog.start_dialog()
 	$game/DialogPopup.connect("change_screen", self, "_change_screen")
 

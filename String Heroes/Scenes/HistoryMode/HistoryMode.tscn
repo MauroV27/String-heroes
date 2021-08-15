@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/DialogBox/DialogBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DialogBox/DialogNovel/DialogBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HistoryMode/HistoryMode.gd" type="Script" id=4]
 [ext_resource path="res://Assets/UI/Background/scene_dialog_1.png" type="Texture" id=5]

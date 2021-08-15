@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Minigame1/PuzzleController/PuzzleController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/DialogBox/DialogPopup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/DialogBox/DialogPopup/DialogPopup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Background/fundo quebra cabeça estilizado 1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Minigame1/OnlyPuzzle.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Arts/Clarissa/Mini/mini clarissa 0.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/Menus/Screens/parabens.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 64
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -20,6 +22,17 @@ corner_radius_bottom_left = 29
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.960784, 0.956863, 0.956863, 0 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
 font_data = ExtResource( 1 )
 
 [node name="OnlyPuzzle" type="Control"]
@@ -53,6 +66,7 @@ text = "Puzzle violino"
 align = 1
 valign = 1
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -104,23 +118,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2560.0
 margin_right = 2560.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="end"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mini clarissa 0" type="Sprite" parent="end"]
+position = Vector2( 640, 200 )
+scale = Vector2( 1.136, 1.136 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 1, 4, 200.547, 227.37 )
+
+[node name="parabens" type="Sprite" parent="end"]
+position = Vector2( 640, 310 )
+texture = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="end"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -309.0
+margin_top = 35.0
+margin_right = 308.999
+margin_bottom = 152.0
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-text = "Você montou 
-o violino perfeitamente
-"
+text = "Está completo!
+ Muito obrigada por me ajudar,
+ agora eu vou conseguir tocar no concerto!"
 align = 1
 valign = 1
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -137,8 +176,9 @@ custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
-text = "Voltar ao menu"
+text = "Continuar"
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 

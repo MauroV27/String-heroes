@@ -21,4 +21,5 @@ func update_clave_view() -> void:
 func _on_Clave_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Note"):
 		update_clave_life(-1)
+		$DamageSound.play()
 		area.queue_free()

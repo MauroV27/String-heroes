@@ -8,6 +8,9 @@ var SCREENS = {
 	"end"	  : Vector2(2560, 0),
 }
 
+func _ready() -> void:
+	Pause.set_pause_state(true)
+
 func _on_Button_jogar_pressed() -> void:
 	cam.set_cam_target(SCREENS.game)
 	$game/DialogPopup.start_dialog()

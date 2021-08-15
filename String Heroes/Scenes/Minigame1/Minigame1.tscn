@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=1]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Concerto/Interface_Concerto.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/DialogBox/DialogBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Concerto/Fala 2.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/DialogBox/DialogNovel/DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Minigame1/Minigame1.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Minigame1/PuzzleController/PuzzleController.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/UI/Background/fundo quebra cabeça estilizado 1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UI/Background/scene_dialog_1.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/DialogBox/DialogPopup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/DialogBox/DialogPopup/DialogPopup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Arts/Marianna/Body/default.png" type="Texture" id=10]
 
 [node name="Minigame1" type="Node2D"]
 script = ExtResource( 5 )
@@ -110,6 +112,8 @@ __meta__ = {
 
 [node name="Dialog" parent="Fala2" instance=ExtResource( 4 )]
 next_screen = "next_scene"
+images_datas = [ ExtResource( 1 ), ExtResource( 10 ) ]
+images_names = [ "Clarissa_default", "Marianna_default" ]
 
 [connection signal="change_screen" from="Initial/Dialog" to="." method="_change_screen"]
 [connection signal="game_complete" from="game/PuzzleController" to="." method="_on_PuzzleController_game_complete"]

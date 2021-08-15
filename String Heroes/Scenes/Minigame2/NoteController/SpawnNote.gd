@@ -13,7 +13,7 @@ const NOTES = ["SOL", "FA", "MI", "RE", "DO", "SI", "LA"]
 
 var spawner_id = 0
 var spawner_dir = 1
-var max_spawner_number = 41
+var max_spawner_number = 10#41
 var spawner_number = 0
 
 func _ready() -> void:

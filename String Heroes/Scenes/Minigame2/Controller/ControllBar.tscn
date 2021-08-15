@@ -30,11 +30,11 @@ __meta__ = {
 }
 
 [node name="PanelColored" parent="Panels" instance=ExtResource( 1 )]
-position = Vector2( 20, 119.21 )
+position = Vector2( 20, 119 )
 panel_color = Color( 0.505882, 0.172549, 0.486275, 1 )
 
 [node name="PanelColored2" parent="Panels" instance=ExtResource( 1 )]
-position = Vector2( 19.7898, 137 )
+position = Vector2( 20, 137 )
 panel_color = Color( 0.164706, 0.196078, 0.498039, 1 )
 
 [node name="PanelColored3" parent="Panels" instance=ExtResource( 1 )]

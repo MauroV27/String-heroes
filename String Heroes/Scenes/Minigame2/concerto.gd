@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var cam = $Camera
+onready var text_feedback = $GameConcerto/ScoreTextSpawner
 
 var scores : int = 0
 
@@ -12,27 +13,35 @@ const SCREENS = {
 }
 
 const POINT_VALUES = {
-	"ok" : 5,
-	"good" : 10,
-	"perfect" : 20,
+	"ok" : 50,
+	"good" : 100,
+	"perfect" : 200,
 }
+
+func _ready() -> void:
+	Pause.set_pause_state(true)
 
 func _on_Button_play_game_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:
 		cam.set_cam_target(SCREENS.game)
 		$GameConcerto/SpawnNote/Timer.start()
+		$GameConcerto/music.play()
 
 func _on_SpawnNote_update_scores(dist_note_panel) -> void:
 	if dist_note_panel < 5:
 		scores += POINT_VALUES.perfect
+		text_feedback.show_feedback("+ Perfeito")
 	elif dist_note_panel < 10:
 		scores += POINT_VALUES.good
+		text_feedback.show_feedback("+ Bom")
 	else:
 		scores += POINT_VALUES.ok
+		text_feedback.show_feedback("+ Ok")
 		
 	$GameConcerto/Scores.text = "%05d" % scores
 
 func end_game(result:bool) -> void:
+	$GameConcerto/music.stop()
 	if result:
 		cam.set_cam_target(SCREENS.ranking)
 		$Ranking/points.text = "%05d" % scores

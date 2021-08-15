@@ -13,6 +13,7 @@ var count = 1
 
 func _ready() -> void:
 	arr = SCREENS.keys()
+	Pause.set_pause_state(true)
 
 func _on_history_start_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:

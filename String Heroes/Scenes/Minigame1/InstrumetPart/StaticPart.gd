@@ -13,5 +13,6 @@ func _on_area_entered(area: Area2D) -> void:
 		if part_name == area.get_parent().get_part_name():
 			modulate = Color(1,1,1,1)
 			emit_signal("piece_connected", area.get_parent())
+			$PieceConnected.play()
 #			area.get_parent().emit_signal("move_piece")
 #			area.get_parent().queue_free()

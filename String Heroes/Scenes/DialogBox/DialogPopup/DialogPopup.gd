@@ -4,10 +4,25 @@ var dialog_is_running : bool = true
 
 signal change_screen(new_scene)
 
+var default_panel_theme : Theme
+
+func _ready() -> void:
+#	default_panel_theme = $DialogBox.custom_styles
+#	print( $DialogBox.get_stylebox_list("Panel"))
+	pass
+	
+func start_dialog() -> void:
+	set_process(true)
+	next_phrase()
+	$AnimationPlayer.play("start_popup")
+
 func _process(delta: float) -> void:
 	$DialogBox/icon.visible = (finished and dialog_is_running)
 	if finished and dialog_is_running:
 		$DialogBox/AnimationPlayer.current_animation = animation_type
+#		var finalized_theme = $DialogBox.get_stylebox("finalizedPanel")
+#		$DialogBox.custom_styles = finalized_theme
+		$DialogBox.get_stylebox("finalizedPanel")
 
 func next_phrase() -> void:
 	if phraseNum >= len(dialog):
@@ -23,7 +38,7 @@ func next_phrase() -> void:
 	
 	finished = false
 	
-#	var img = FILE_DIRECTORY + dialog[phraseNum]["character"] + "/Icon/" + dialog[phraseNum]["image"]
+	$DialogBox.get_stylebox("defaultPanel") 
 	
 	$DialogBox/Character_icon.visible = true
 #	if ResourceLoader.exists(img):
@@ -48,4 +63,5 @@ func next_phrase() -> void:
 
 func _on_PuzzleController_part_add() -> void:
 	dialog_is_running = true
+	
 	next_phrase()
