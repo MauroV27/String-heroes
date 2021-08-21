@@ -20,18 +20,18 @@ const POINT_VALUES = {
 
 func _ready() -> void:
 	Pause.set_pause_state(true)
+	ControllView.stop_all_musics()
 
 func _on_Button_play_game_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:
 		cam.set_cam_target(SCREENS.game)
-		$GameConcerto/SpawnNote/Timer.start()
-		$GameConcerto/music.play()
+		$GameConcerto/SpawnNote.start_game()
 
 func _on_SpawnNote_update_scores(dist_note_panel) -> void:
-	if dist_note_panel < 5:
+	if dist_note_panel < 9:
 		scores += POINT_VALUES.perfect
 		text_feedback.show_feedback("+ Perfeito")
-	elif dist_note_panel < 10:
+	elif dist_note_panel < 18:
 		scores += POINT_VALUES.good
 		text_feedback.show_feedback("+ Bom")
 	else:
@@ -41,7 +41,8 @@ func _on_SpawnNote_update_scores(dist_note_panel) -> void:
 	$GameConcerto/Scores.text = "%05d" % scores
 
 func end_game(result:bool) -> void:
-	$GameConcerto/music.stop()
+	cam.stop_shake()
+	$GameConcerto/SpawnNote.stop_spawn()
 	if result:
 		cam.set_cam_target(SCREENS.ranking)
 		$Ranking/points.text = "%05d" % scores

@@ -1,0 +1,62 @@
+[
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.4,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.6,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.5,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.5,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 0.6,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.8,
+        "spawner_id" : 9
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.8,
+        "spawner_id" : 10
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.6,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.5,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.5,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 0.6,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.8,
+        "spawner_id" : 9
+    }
+]

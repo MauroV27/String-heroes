@@ -15,6 +15,7 @@ func start_dialog() -> void:
 	set_process(true)
 	next_phrase()
 	$AnimationPlayer.play("start_popup")
+	ControllView.stop_all_musics()
 
 func _process(delta: float) -> void:
 	$DialogBox/icon.visible = (finished and dialog_is_running)

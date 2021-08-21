@@ -36,14 +36,13 @@ func _change_screen(new_scene) -> void:
 		$game/PuzzleController.start_game()
 	if new_scene == "end":
 		cam.set_cam_target(SCREENS.end)
-		$Final/DialogNovel.start_dialog()
-	if new_scene == "fala2":
-		cam.set_cam_target(SCREENS.fala2)
-		$Fala2/Dialog.start_dialog()
+#		$Final/DialogNovel.start_dialog()
 	if new_scene == "next_scene":
 		ControllView._change_scene("res://Scenes/Minigame2/Minigame2.tscn", "fade")
 
 func _on_PuzzleController_game_complete() -> void:
 	cam.set_cam_target(SCREENS.end)
 
-
+func _on_Button_menu_pressed() -> void:
+	cam.set_cam_target(SCREENS.fala2)
+	$Fala2/Dialog.start_dialog()

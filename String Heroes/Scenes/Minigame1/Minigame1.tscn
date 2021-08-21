@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=1]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=2]
@@ -10,6 +10,31 @@
 [ext_resource path="res://Assets/UI/Background/scene_dialog_1.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/DialogBox/DialogPopup/DialogPopup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Arts/Marianna/Body/default.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Arts/Clarissa/Mini/mini clarissa 0.png" type="Texture" id=12]
+[ext_resource path="res://Assets/UI/Menus/Screens/parabens.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.960784, 0.956863, 0.956863, 0 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+corner_radius_top_left = 29
+corner_radius_top_right = 29
+corner_radius_bottom_right = 29
+corner_radius_bottom_left = 29
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 11 )
 
 [node name="Minigame1" type="Node2D"]
 script = ExtResource( 5 )
@@ -69,6 +94,7 @@ dialogName = "puzzleViolin.json"
 next_screen = "end"
 
 [node name="Final" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2560.0
@@ -90,6 +116,77 @@ margin_right = 1280.0
 margin_bottom = 720.0
 dialogName = "puzzleCongrats.json"
 next_screen = "fala2"
+
+[node name="end_game" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2560.0
+margin_right = 3840.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="end_game"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mini clarissa 0" type="Sprite" parent="end_game"]
+position = Vector2( 640, 200 )
+scale = Vector2( 1.136, 1.136 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 1, 4, 200.547, 227.37 )
+
+[node name="parabens" type="Sprite" parent="end_game"]
+position = Vector2( 640, 310 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="end_game"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -309.0
+margin_top = 35.0
+margin_right = 308.999
+margin_bottom = 152.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+text = "Está completo!
+ Muito obrigada por me ajudar,
+ agora eu vou conseguir tocar no concerto!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button_menu" type="Button" parent="end_game"]
+anchor_left = 0.353125
+anchor_top = 0.752778
+anchor_right = 0.641406
+anchor_bottom = 0.834722
+margin_left = 6.0
+margin_top = -0.000183105
+margin_right = 6.00031
+margin_bottom = 0.000183105
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "Continuar"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [node name="Fala2" type="Control" parent="."]
 anchor_right = 1.0
@@ -119,4 +216,5 @@ images_names = [ "Clarissa_default", "Marianna_default" ]
 [connection signal="game_complete" from="game/PuzzleController" to="." method="_on_PuzzleController_game_complete"]
 [connection signal="part_add" from="game/PuzzleController" to="game/DialogPopup" method="_on_PuzzleController_part_add"]
 [connection signal="change_screen" from="Final/DialogNovel" to="." method="_change_screen"]
+[connection signal="pressed" from="end_game/Button_menu" to="." method="_on_Button_menu_pressed"]
 [connection signal="change_screen" from="Fala2/Dialog" to="." method="_change_screen"]

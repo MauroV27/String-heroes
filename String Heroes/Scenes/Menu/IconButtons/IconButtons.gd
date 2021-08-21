@@ -28,7 +28,7 @@ func _ready() -> void:
 		$Icon_button.texture_normal = texture_normal
 	
 	if not item_focus:
-		set_scale(Vector2(0.8, 0.8))
+		rect_scale = Vector2(0.8, 0.8)
 
 func _on_IconButtons_mouse_entered() -> void:
 	get_parent().change_item_focus(_intern_name_reference)
@@ -42,7 +42,8 @@ func _on_Icon_button_pressed() -> void:
 	$sound_button_pressed.play()
 
 func update_status_icon(itens:Dictionary) -> void:
-	item_focus = itens[_intern_name_reference]
+	item_focus = itens[ _intern_name_reference ]
+#	print("intenr", _intern_name_reference, item_focus)
 	if item_focus:
 		effect_controller( ITEM_STATE.Selected )
 	else:

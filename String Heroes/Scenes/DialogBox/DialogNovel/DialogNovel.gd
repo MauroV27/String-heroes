@@ -9,7 +9,7 @@ signal add_text_to_historic
 func start_dialog() -> void:
 	set_process(true)
 	next_phrase()
-	$music.play()
+	ControllView.play_dialog_music()
 
 func change_image_to(new_image_name:String) -> void:
 	$Character_body.texture = images[new_image_name]
@@ -19,7 +19,6 @@ func next_phrase() -> void:
 	if phraseNum >= len(dialog):
 		if next_screen != "":
 			emit_signal("change_screen", next_screen)
-			$music.stop()
 			set_process(false)
 		else:
 			queue_free()

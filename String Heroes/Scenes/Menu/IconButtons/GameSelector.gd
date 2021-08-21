@@ -11,16 +11,19 @@ func _ready() -> void:
 	
 	for child in get_children():
 		all_item_focus[child.name] = child.item_focus
+#		print(child.name, child.item_focus)
 		if child.item_focus:
 			_first_focus_item = child.name
-#			child.rect_scale = Vector2(.8, .8)
+		else:
+			child.rect_scale = Vector2(0.8, 0.8)
 	
-	print(all_item_focus)
+#	print(all_item_focus)
 	change_item_focus(_first_focus_item)
 
 func prepare_icons(): 
 	for child in get_children():
 		if not child.item_focus:
+			print(child.name)
 			child.rect_scale = Vector2(.8, .8)
 
 func change_item_focus(new_focus:String) -> void:

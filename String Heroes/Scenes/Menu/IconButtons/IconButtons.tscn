@@ -30,7 +30,6 @@ margin_bottom = 180.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_min_size = Vector2( 300, 360 )
-rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 150, 180 )
 script = ExtResource( 3 )
 __meta__ = {

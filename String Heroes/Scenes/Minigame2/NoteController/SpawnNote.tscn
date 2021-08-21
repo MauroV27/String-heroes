@@ -41,6 +41,19 @@ position = Vector2( 0, 162 )
 [node name="Spawner11" type="Position2D" parent="."]
 position = Vector2( 0, 180 )
 
+[node name="Spawner12" type="Position2D" parent="."]
+position = Vector2( 0, 198 )
+
+[node name="Spawner13" type="Position2D" parent="."]
+position = Vector2( 0, 216 )
+
 [node name="Timer" type="Timer" parent="."]
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+
+[node name="StartMusic" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="StartMusic" to="." method="_on_StartMusic_timeout"]

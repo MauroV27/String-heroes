@@ -5,6 +5,7 @@ const MAX_LIFE : int = 12
 var currently_life : int
 
 signal end_game( result )
+signal note_colide
 
 func _ready() -> void:
 	currently_life = MAX_LIFE
@@ -23,3 +24,4 @@ func _on_Clave_area_entered(area: Area2D) -> void:
 		update_clave_life(-1)
 		$DamageSound.play()
 		area.queue_free()
+		emit_signal("note_colide")

@@ -1,11 +1,11 @@
 extends CanvasLayer
 
-var cam_pause_here : bool = false
+var cam_pause_here : bool = true
 
 func _ready() -> void:
 	set_visible(false)
-	if OS.get_name() != "HTML5":
-		print("Não está rodando no HTML5.")
+	if OS.get_name() == "HTML5":
+		$Panel/Button_quit_game.queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and cam_pause_here:
@@ -28,3 +28,5 @@ func _on_Button_menu_pressed() -> void:
 	ControllView._change_scene("res://Scenes/Menu/Menu.tscn", "fade")
 	get_tree().paused = false
 
+func _on_Button_quit_game_pressed() -> void:
+	get_tree().quit()

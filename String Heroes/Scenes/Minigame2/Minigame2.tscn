@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Concerto/Fala 2.png" type="Texture" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://Scenes/Minigame2/NoteController/SpawnNote.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Minigame2/ClaveController/Clave.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Minigame2/Feedback/TextSpawner.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Sounds/Musics/musica da tela de seleçao de jogo.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/Game_musics/primavera_de_vivaldi_6seg.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Concerto/Balão de Fala.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Arts/Clarissa/Mini/mini clarissa 0.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Arts/Marianna/Mini/Chibi Marianna(1).png" type="Texture" id=12]
 [ext_resource path="res://Assets/Fonts/RubikOne-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Globals/Camera/ScreenShake.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -29,11 +30,14 @@ corner_radius_bottom_left = 29
 size = 40
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20, 205 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 36
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
 border_width_left = 8
 border_width_top = 8
@@ -45,12 +49,12 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 44
 outline_size = 4
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 100
 outline_size = 10
 font_data = ExtResource( 1 )
@@ -66,18 +70,18 @@ corner_radius_bottom_left = 29
 size = 36
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=11]
 size = 40
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 29
 corner_radius_top_right = 29
 corner_radius_bottom_right = 29
 corner_radius_bottom_left = 29
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -85,6 +89,12 @@ font_data = ExtResource( 1 )
 script = ExtResource( 4 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 14 )
+
+[node name="Timer" type="Timer" parent="Camera"]
+
+[node name="Tween" type="Tween" parent="Camera"]
+playback_process_mode = 0
 
 [node name="initial" type="Control" parent="."]
 __meta__ = {
@@ -133,7 +143,7 @@ __meta__ = {
 }
 
 [node name="GameConcerto" type="Node2D" parent="."]
-position = Vector2( 1280, -40 )
+position = Vector2( 1282, -40 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -156,13 +166,34 @@ scale = Vector2( 1.05, 1.05 )
 texture = ExtResource( 10 )
 
 [node name="ControllBar" parent="GameConcerto" instance=ExtResource( 5 )]
+visible = false
 margin_left = 256.0
 margin_top = 118.0
 margin_right = 256.0
 margin_bottom = 118.0
 
+[node name="verticalBar" type="Area2D" parent="GameConcerto" groups=[
+"Panel",
+]]
+position = Vector2( 256, 118 )
+
+[node name="ColorRect" type="ColorRect" parent="GameConcerto/verticalBar"]
+margin_right = 40.0
+margin_bottom = 410.0
+color = Color( 0.12549, 0.121569, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameConcerto/verticalBar"]
+visible = false
+position = Vector2( 20, 205 )
+shape = SubResource( 4 )
+
 [node name="SpawnNote" parent="GameConcerto" instance=ExtResource( 6 )]
-position = Vector2( 1120, 240 )
+position = Vector2( 1120, 222 )
+level_map_name = "level0.json"
+music_file = ExtResource( 9 )
 
 [node name="Scores" type="Label" parent="GameConcerto"]
 anchor_right = 1.0
@@ -171,8 +202,8 @@ margin_left = 580.0
 margin_top = 540.0
 margin_right = 700.0
 margin_bottom = 590.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "00000"
 align = 1
 valign = 1
@@ -182,15 +213,12 @@ __meta__ = {
 }
 
 [node name="Clave" parent="GameConcerto" instance=ExtResource( 7 )]
-position = Vector2( 195, 332 )
+position = Vector2( 200, 332 )
+scale = Vector2( 1.6, 1.6 )
 
 [node name="ScoreTextSpawner" type="Position2D" parent="GameConcerto"]
 position = Vector2( 256, 125 )
 script = ExtResource( 8 )
-
-[node name="music" type="AudioStreamPlayer" parent="GameConcerto"]
-stream = ExtResource( 9 )
-volume_db = -6.0
 
 [node name="SpriteClarisse" type="Sprite" parent="GameConcerto"]
 position = Vector2( 256, 600 )
@@ -237,7 +265,7 @@ margin_left = -445.0
 margin_top = -250.0
 margin_right = 445.0
 margin_bottom = 250.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -246,7 +274,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 40.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 text = "Ranking"
@@ -259,7 +287,11 @@ __meta__ = {
 [node name="points" type="Label" parent="Ranking"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 7 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 text = "00000"
@@ -312,7 +344,7 @@ __meta__ = {
 [node name="message" type="Label" parent="Defeat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 text = "Você passou perto, 
 tente de novo."
@@ -331,10 +363,10 @@ margin_left = 6.0
 margin_top = -0.000183105
 margin_right = 6.00031
 margin_bottom = 0.000183105
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "Jogar de novo"
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -345,5 +377,6 @@ __meta__ = {
 [connection signal="end_game" from="GameConcerto/SpawnNote" to="." method="end_game"]
 [connection signal="update_scores" from="GameConcerto/SpawnNote" to="." method="_on_SpawnNote_update_scores"]
 [connection signal="end_game" from="GameConcerto/Clave" to="." method="end_game"]
+[connection signal="note_colide" from="GameConcerto/Clave" to="Camera" method="_on_Clave_note_colide"]
 [connection signal="pressed" from="Ranking/Button_to_menu" to="." method="_on_Button_to_menu_pressed"]
 [connection signal="pressed" from="Defeat/Button_restart" to="." method="_on_Button_restart_pressed"]
