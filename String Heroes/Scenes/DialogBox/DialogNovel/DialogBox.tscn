@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/DialogBox/DialogNovel/DialogNovel.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/DialogBox/DialogHistoric/DialogHistoric.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Roboto-Italic.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/UI/Icons/icon_historic.png" type="Texture" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -21,13 +22,17 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 28
-font_data = ExtResource( 2 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -43,7 +48,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1180, 130 ), Vector2( 1200, 130 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -59,11 +64,11 @@ tracks/0/keys = {
 "values": [ Vector2( 920, 110 ), Vector2( 940, 110 ) ]
 }
 
-[sub_resource type="StyleBoxEmpty" id=8]
-
 [sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
 
 [node name="DialogNovel" type="Control"]
 process_priority = 1
@@ -136,8 +141,9 @@ margin_left = 0.0909271
 margin_top = 27.5
 margin_right = 34.8184
 margin_bottom = 2.49985
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/italics_font = SubResource( 4 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "Lorem ipsum dolor sit amet, [b]consectetur[/b] adipiscing elit. Bla bla bla"
@@ -155,15 +161,15 @@ color = Color( 0.933333, 0.317647, 0.156863, 1 )
 polygon = PoolVector2Array( 0, 0, 0, 30, 28, 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox"]
-anims/body_move = SubResource( 6 )
-anims/icon_move = SubResource( 7 )
+anims/body_move = SubResource( 7 )
+anims/icon_move = SubResource( 8 )
 
 [node name="Button_dialog" type="Button" parent="DialogBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

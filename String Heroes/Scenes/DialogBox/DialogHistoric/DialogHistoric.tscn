@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -19,33 +19,25 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-anti_aliasing = false
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 24
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 48
 outline_size = 8
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 20
 font_data = ExtResource( 2 )
 
@@ -55,6 +47,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 640, 360 )
 script = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -63,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0.0980392 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -73,35 +67,44 @@ anchor_right = 0.847656
 anchor_bottom = 0.847222
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": true
 }
 
 [node name="Button" type="Button" parent="Panel"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 22.0
-margin_top = -61.9997
-margin_right = 271.999
-margin_bottom = -21.9997
-rect_pivot_offset = Vector2( 125, 20 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -70.0004
+margin_top = 20.0
+margin_right = -20.0004
+margin_bottom = 70.0
 rect_clip_content = true
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Sair do histórico"
+text = "X"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
+[node name="Polygon2D" type="Polygon2D" parent="Panel"]
+polygon = PoolVector2Array( 133.644, 43.2769, 127.144, 57.2769, 207.144, 62.7769, 245.144, 59.7769, 257.144, 52.2769, 255.644, 38.7769, 212.144, 36.7769 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Panel"]
+polygon = PoolVector2Array( 292.288, 38.7769, 280.788, 54.2769, 302.288, 64.2769, 326.288, 65.2769, 336.788, 53.7769, 324.288, 38.2769 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="Panel"]
+polygon = PoolVector2Array( 371.788, 36.2769, 355.788, 48.7769, 365.288, 63.2769, 437.288, 63.2769, 537.288, 63.2769, 561.788, 61.2769, 558.288, 40.7769, 498.288, 34.2769, 440.288, 37.7769 )
+
 [node name="Label" type="Label" parent="Panel"]
-margin_left = 20.0
+margin_left = 19.5
 margin_top = 20.0
-margin_right = 480.0
-margin_bottom = 77.0
-custom_fonts/font = SubResource( 5 )
+margin_right = 570.5
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 text = "Histórico de dialogos"
@@ -114,8 +117,8 @@ margin_left = 22.0
 margin_top = 88.0
 margin_right = 864.0
 margin_bottom = 434.0
-custom_fonts/bold_font = SubResource( 6 )
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "You can add second (child) sprite offset from the first with proper modulate set (add opacity) or you could try adding lights if it is a more complex need

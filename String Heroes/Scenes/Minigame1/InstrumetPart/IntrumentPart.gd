@@ -4,11 +4,13 @@ export var area_collision : Shape2D
 export var part_name : String = "Text"
 
 var selected : bool = false
+var initial_position : Vector2
 
 signal move_piece( piece )
 
 func _ready() -> void:
 	$Area/Collision.shape = area_collision
+	initial_position = position
 
 func _process(delta: float) -> void:
 	if selected:
@@ -24,3 +26,5 @@ func _on_mouse_exited() -> void:
 func get_part_name() -> String:
 	return part_name
 
+func restar_position() -> void:
+	position = initial_position

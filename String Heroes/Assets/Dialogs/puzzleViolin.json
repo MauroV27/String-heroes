@@ -4,97 +4,167 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "Então vamos lá!",
-	"continue" : true,
+	"continue" : true
 	},
  {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "A primeira peça que vamos pegar é o TAMPO INFERIOR, ele é a parte de baixo do corpo do instrumento",
-	"continue" : false,
+	"continue" : false
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Isso! O TAMPO INFERIOR dá a forma ao instrumento!",
-	"continue" : true,
+	"text" : "Isso! \nO TAMPO INFERIOR dá a forma ao instrumento!",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "A segunda peça é a ALMA, ela parece um palito e fica dentro do instrumento!",
-	"continue" : true,
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Muito bem! A ALMA melhora a qualidade do som e ajuda a sustentar a pressão feita pelas cordas.",
-	"continue" : true,
+	"text" : "Muito bem! \nA ALMA melhora a qualidade do som e ajuda a sustentar a pressão feita pelas cordas.",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "A próxima é a TAMPO SUPERIOR, peça que fecha o corpo do instrumento.",
-	"continue" : true,
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Beleza! O TAMPO SUPERIOR, dá a forma ao instrumento, e junto a ALMA e o TAMPO INFERIOR, determina a qualidade do som do instrumento!",
-	"continue" : true,
+	"text" : "Beleza! \nO TAMPO SUPERIOR, dá a forma ao instrumento, e junto a ALMA e o TAMPO INFERIOR, determina a qualidade do som do instrumento!",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Em seguida vem o BRAÇO, a parte que é segurada com a mão pela pessoa que toca, fica mais para a direita!",
-	"continue" : true,
+	"text" : "Em seguida vem o BRAÇO, a parte que é segurada pela pessoa que toca.",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Boa! O BRAÇO é uma peça importante de suporte para a pessoa que está tocando o instrumento, além de sustentar outras peças!",
-	"continue" : true,
+	"text" : "Boa! \nO BRAÇO é uma peça importante de suporte para a pessoa que está tocando o instrumento, além de apoiar outras peças!",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Agora que você pegou o jeito vamos pegar várias peças! O BOTÃO + ESTANDARTE + CAVALETE + PESTANA. O botão fica na base do corpo do instrumento e a pestana no fim do braço!",
-	"continue" : true,
+	"text" : "Agora que você pegou o jeito vamos pegar várias peças! O BOTÃO + ESTANDARTE + CAVALETE + MICROAFINADORES. O botão fica na base do corpo do instrumento e a pestana no fim do braço!",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Bom demais! O BOTÃO fixa o ESTANDARTE que fixa as cordas no instrumento. O CAVALETE permite que as cordas vibrem e passa essas vibrações para o corpo do violino, elas são o som do violino! A PESTANA junta o espelho à cravelha.",
-	"continue" : true,
+	"text" : "Bom demais! \nO BOTÃO fixa o ESTANDARTE que fixa as cordas no instrumento, junto a ele estão os MICROAFINADORES que garantem uma afinação precisa!",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "O CAVALETE permite que as cordas vibrem e passa essas vibrações para o corpo do instrumento, elas são o som dele!",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "E vamos de ABERTURA EM “S”. Ela é uma buraco em formato de “s” ou “f” no tampo superior.",
-	"continue" : true,
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "Excelente! A ABERTURA EM “S” é de onde o som sai do instrumento!",
-	"continue" : true,
+	"text" : "Excelente! \nA ABERTURA EM “S” é de onde o som sai do instrumento!",
+	"continue" : true
 	},
 {
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "A próxima é a QUEIXEIRA. Ela fica no corpo do instrumento, na parte mais para a esquerda!",
-	"continue" : true,
+	"text" : "A próxima é a QUEIXEIRA. Ela fica no corpo do instrumento e serve de apoio para o queixo.",
+	"continue" : true
 	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Muito bem! \nA QUEIXEIRA é a parte que a pessoa que está tocando o instrumento apoia seu queixo!",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Em seguida, a VOLUTA. Essa peça fica na pontinha do braço do instrumento.",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Arrasou! \nA VOLUTA é onde as CRAVELHAS são encaixadas",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "E falando nelas, as CRAVELHAS são uma peça que parecem pinos que ficam na voluta.",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Boa! \nAs CRAVELHAS deixam você afinar o instrumento.",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Agora vamos botar o ESPELHO + PESTANA, eles ficam em cima do braço e é onde colocamos nossos dedos ao tocar!",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Perfeito! \nO ESPELHO é onde decidimos o som que a nota terá de acordo com a posição dos nossos dedos, e a PESTANA junta o ESPELHO à cravelha.",
+	"continue" : true
+	},	
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Para finalizar o instrumento faltam apenas as CORDAS!",
+	"continue" : true
+	},
+{
+	"type": "icon",
+	"character": "Clarissa",
+	"image" : "default.png",
+	"text" : "Arrasou! \nAs CORDAS ao serem tocadas pelo ARCO vibram e produzem o som que ouvimos!",
+	"continue" : true
+	}									
 ]

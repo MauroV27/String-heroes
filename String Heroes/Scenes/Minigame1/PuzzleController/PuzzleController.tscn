@@ -216,7 +216,7 @@ area_collision = SubResource( 12 )
 part_name = "alma"
 
 [node name="IntrumentPart3" parent="MovePieces" instance=ExtResource( 2 )]
-position = Vector2( 616, 160 )
+position = Vector2( 616, 158 )
 texture = SubResource( 13 )
 script = SubResource( 14 )
 area_collision = SubResource( 15 )
