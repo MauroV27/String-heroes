@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/musica_do_quebra-cabeca.wav-bd8e7d9ae0d9dd7874cb0f1d47a5c897.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Musics/musica_do_quebra-cabeca.wav"
+dest_files=[ "res://.import/musica_do_quebra-cabeca.wav-bd8e7d9ae0d9dd7874cb0f1d47a5c897.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

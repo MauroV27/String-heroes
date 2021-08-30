@@ -24,7 +24,6 @@ __meta__ = {
 }
 
 [node name="Panels" type="Node2D" parent="."]
-visible = false
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/RubikOne-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Globals/Pause/Pause.gd" type="Script" id=3]
+[ext_resource path="res://Assets/UI/Icons/icon_mute_sound.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Icons/icon_max_sound.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
@@ -59,28 +61,12 @@ font_data = ExtResource( 1 )
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
-bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=9]
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-bg_color = Color( 0.956863, 0.937255, 0.929412, 1 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color( 0.956863, 0.937255, 0.929412, 1 )
+border_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -91,12 +77,12 @@ anti_aliasing = false
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color( 1, 1, 1, 1 )
+border_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -204,7 +190,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSlider" type="HSlider" parent="Panel"]
+[node name="Sound_controller" type="HSlider" parent="Panel"]
 anchor_left = 0.347191
 anchor_top = 0.447556
 anchor_right = 0.942429
@@ -214,10 +200,10 @@ margin_bottom = -7.77753
 rect_pivot_offset = Vector2( 125, 20 )
 rect_clip_content = true
 custom_styles/slider = SubResource( 8 )
-custom_styles/grabber_area_highlight = SubResource( 9 )
+custom_styles/grabber_area_highlight = SubResource( 10 )
 custom_styles/grabber_area = SubResource( 10 )
-max_value = 10.0
-value = 6.0
+max_value = 9.0
+value = 5.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -263,6 +249,15 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Mute_sound" type="Sprite" parent="Panel"]
+position = Vector2( 280, 243.778 )
+texture = ExtResource( 4 )
+
+[node name="Mute_sound2" type="Sprite" parent="Panel"]
+position = Vector2( 590, 243.778 )
+texture = ExtResource( 5 )
+
 [connection signal="pressed" from="Panel/Button_pause_over" to="." method="_on_Button_pause_over_pressed"]
+[connection signal="value_changed" from="Panel/Sound_controller" to="." method="_on_Sound_controller_value_changed"]
 [connection signal="pressed" from="Panel/Button_menu" to="." method="_on_Button_menu_pressed"]
 [connection signal="pressed" from="Panel/Button_quit_game" to="." method="_on_Button_quit_game_pressed"]

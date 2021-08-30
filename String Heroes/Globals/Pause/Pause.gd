@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var cam_pause_here : bool = true
+var audio_db_level : int = 5
 
 func _ready() -> void:
 	set_visible(false)
@@ -30,3 +31,11 @@ func _on_Button_menu_pressed() -> void:
 
 func _on_Button_quit_game_pressed() -> void:
 	get_tree().quit()
+
+func _on_Sound_controller_value_changed(value: float) -> void:
+	#Pega o novo valor da variavel value e gera um valor em potencia de dois para os decibeis
+	#Se tiver a baixo da metade ( menor que 5 ) diminui os decibeis, 
+	#por conta disso é importante ter a função sing(value-5)
+	audio_db_level = value
+	var gloabal_audio_volume_db = sign(audio_db_level - 5) * pow(2, abs(audio_db_level - 5))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), gloabal_audio_volume_db)

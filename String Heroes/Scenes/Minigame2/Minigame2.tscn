@@ -1,19 +1,20 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Concerto/Fala 2.png" type="Texture" id=2]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Minigame2/concerto.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Minigame2/Controller/ControllBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Minigame2/Controller/mouseController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Minigame2/NoteController/SpawnNote.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Minigame2/ClaveController/Clave.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Minigame2/Feedback/TextSpawner.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Sounds/Game_musics/primavera_de_vivaldi_6seg.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/Game_musics/audio_concerto.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Concerto/Balão de Fala.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Arts/Clarissa/Mini/mini clarissa 0.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Arts/Marianna/Mini/Chibi Marianna(1).png" type="Texture" id=12]
 [ext_resource path="res://Assets/Fonts/RubikOne-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Globals/Camera/ScreenShake.gd" type="Script" id=14]
+[ext_resource path="res://Assets/UI/Icons/icon_restart.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -33,6 +34,15 @@ font_data = ExtResource( 1 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 20, 205 )
 
+[sub_resource type="Theme" id=14]
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.12549, 0.121569, 0.129412, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="DynamicFont" id=5]
 size = 36
 font_data = ExtResource( 1 )
@@ -50,7 +60,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [sub_resource type="DynamicFont" id=7]
-size = 44
+size = 64
 outline_size = 4
 font_data = ExtResource( 13 )
 
@@ -71,17 +81,6 @@ size = 36
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
-corner_radius_top_left = 29
-corner_radius_top_right = 29
-corner_radius_bottom_right = 29
-corner_radius_bottom_left = 29
-
-[sub_resource type="DynamicFont" id=13]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -165,13 +164,6 @@ position = Vector2( 640, 330 )
 scale = Vector2( 1.05, 1.05 )
 texture = ExtResource( 10 )
 
-[node name="ControllBar" parent="GameConcerto" instance=ExtResource( 5 )]
-visible = false
-margin_left = 256.0
-margin_top = 118.0
-margin_right = 256.0
-margin_bottom = 118.0
-
 [node name="verticalBar" type="Area2D" parent="GameConcerto" groups=[
 "Panel",
 ]]
@@ -191,17 +183,35 @@ position = Vector2( 20, 205 )
 shape = SubResource( 4 )
 
 [node name="SpawnNote" parent="GameConcerto" instance=ExtResource( 6 )]
-position = Vector2( 1120, 222 )
+position = Vector2( 1120, 186 )
 level_map_name = "level0.json"
 music_file = ExtResource( 9 )
 
-[node name="Scores" type="Label" parent="GameConcerto"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 580.0
-margin_top = 540.0
-margin_right = 700.0
-margin_bottom = 590.0
+[node name="Scores" type="Panel" parent="GameConcerto"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 570.0
+margin_top = 520.0
+margin_right = 710.0
+margin_bottom = 580.0
+rect_pivot_offset = Vector2( 70, 30 )
+theme = SubResource( 14 )
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="GameConcerto/Scores"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -55.0
+margin_right = 130.0
+margin_bottom = 55.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "00000"
@@ -219,6 +229,11 @@ scale = Vector2( 1.6, 1.6 )
 [node name="ScoreTextSpawner" type="Position2D" parent="GameConcerto"]
 position = Vector2( 256, 125 )
 script = ExtResource( 8 )
+
+[node name="mouseController" parent="GameConcerto" instance=ExtResource( 5 )]
+position = Vector2( 276, 138 )
+min_position_vertical = 138.0
+max_position_vertical = 558.0
 
 [node name="SpriteClarisse" type="Sprite" parent="GameConcerto"]
 position = Vector2( 256, 600 )
@@ -277,7 +292,7 @@ margin_bottom = 100.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-text = "Ranking"
+text = "Pontuação"
 align = 1
 valign = 1
 __meta__ = {
@@ -354,20 +369,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button_restart" type="Button" parent="Defeat"]
-anchor_left = 0.353125
-anchor_top = 0.752778
-anchor_right = 0.641406
-anchor_bottom = 0.834722
-margin_left = 6.0
-margin_top = -0.000183105
-margin_right = 6.00031
-margin_bottom = 0.000183105
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/normal = SubResource( 12 )
-custom_fonts/font = SubResource( 13 )
-text = "Jogar de novo"
+[node name="Button_restart" type="TextureButton" parent="Defeat"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = 182.0
+margin_right = 44.0
+margin_bottom = 270.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""

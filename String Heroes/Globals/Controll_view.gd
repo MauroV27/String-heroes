@@ -19,13 +19,19 @@ func _new_scene()-> void:
 func play_dialog_music() -> void:
 	if not music_is_active:
 		$music.stream = dialog_music
-		$music.play()
+		$musicController.play("start_audio")
 		music_is_active = true
 
 func stop_all_musics() -> void:
-	$music.stop()
+	$musicController.play("stop_audio")
 	music_is_active = false
 
 func _on_music_finished() -> void:
 	if music_is_active:
 		$music.play()
+
+func _start_audio_animation() -> void:
+	$music.play()
+
+func _stop_audio_animation() -> void:
+	$music.stop()

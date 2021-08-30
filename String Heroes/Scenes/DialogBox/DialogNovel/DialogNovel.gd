@@ -1,5 +1,9 @@
 extends "res://Scenes/DialogBox/Dialog.gd"
-# Usa os códigos de Dialog.gd como base
+
+"""
+	Código que controla o dialogo no estilo novel.
+	As bases do código estão no script Dialog.gd.
+"""
 
 onready var bodys = $Character_body
 

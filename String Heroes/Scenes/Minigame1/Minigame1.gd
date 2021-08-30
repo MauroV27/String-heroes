@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _on_Button_start_game_pressed() -> void:
 	cam.set_cam_target(SCREENS.game)
+	$game/music.play()
 
 func _on_Button_pressed() -> void:
 	cam.set_cam_target(SCREENS.end)
@@ -34,10 +35,12 @@ func _change_screen(new_scene) -> void:
 		cam.set_cam_target(SCREENS.game)
 		$game/DialogPopup.start_dialog()
 		$game/PuzzleController.start_game()
+		$game/music.play()
 	if new_scene == "end":
 		cam.set_cam_target(SCREENS.end)
 #		$Final/DialogNovel.start_dialog()
 	if new_scene == "next_scene":
+		$game/music.stop()
 		ControllView._change_scene("res://Scenes/Minigame2/Minigame2.tscn", "fade")
 
 func _on_PuzzleController_game_complete() -> void:

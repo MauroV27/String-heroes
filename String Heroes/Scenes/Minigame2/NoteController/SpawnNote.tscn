@@ -47,6 +47,12 @@ position = Vector2( 0, 198 )
 [node name="Spawner13" type="Position2D" parent="."]
 position = Vector2( 0, 216 )
 
+[node name="Spawner14" type="Position2D" parent="."]
+position = Vector2( 0, 234 )
+
+[node name="Spawner15" type="Position2D" parent="."]
+position = Vector2( 0, 252 )
+
 [node name="Timer" type="Timer" parent="."]
 
 [node name="music" type="AudioStreamPlayer" parent="."]

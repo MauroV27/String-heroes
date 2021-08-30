@@ -18,9 +18,11 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	emit_signal("move_piece", self)
+#	Input.set_custom_mouse_cursor(null, Input.CURSOR_DRAG)
 
 func _on_mouse_exited() -> void:
 	emit_signal("move_piece", self)
+#	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 	selected = false
 
 func get_part_name() -> String:

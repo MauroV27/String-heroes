@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/audio_concerto.wav-dc1d80b66269085297281fa395697aac.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Game_musics/audio_concerto.wav"
+dest_files=[ "res://.import/audio_concerto.wav-dc1d80b66269085297281fa395697aac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,8 +2,6 @@ extends Area2D
 
 const SPEED = -200
 
-#const SOUNDS = "res://Assets/Sounds/Note_sounds/sounds.json"
-
 const NOTE_COLOR = {
 	"DO" : Color("#2a327f"),
 	"RE" : Color("#009f47"),
@@ -21,7 +19,7 @@ func define_note(note_position: Vector2, note_type:String) -> void:
 	global_position = note_position
 	note = note_type
 #	$ColorRect.color = NOTE_COLOR[note]
-	$Button.modulate = NOTE_COLOR[note]
+	$Note_texture.modulate = NOTE_COLOR[note]
 
 func _process(delta: float) -> void:
 	position.x += SPEED * delta
@@ -29,7 +27,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_MusicalNote_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Panel"):
+	if area.is_in_group("mouseController"): #antes era "Panel"
 		note_has_activated = true
 
 func _on_Button_pressed() -> void:
@@ -37,3 +35,11 @@ func _on_Button_pressed() -> void:
 		var dist = get_global_mouse_position() - global_position
 		get_parent().submit_distance_collide(abs(dist.x))
 		queue_free()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click_left"):
+		if note_has_activated:
+			var dist = get_global_mouse_position() - global_position
+			get_parent().submit_distance_collide(abs(dist.x))
+			queue_free()
+	

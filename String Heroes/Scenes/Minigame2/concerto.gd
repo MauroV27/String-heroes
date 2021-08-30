@@ -22,10 +22,14 @@ func _ready() -> void:
 	Pause.set_pause_state(true)
 	ControllView.stop_all_musics()
 
+
 func _on_Button_play_game_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:
 		cam.set_cam_target(SCREENS.game)
 		$GameConcerto/SpawnNote.start_game()
+		#Deixa o mouse invisivel
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 
 func _on_SpawnNote_update_scores(dist_note_panel) -> void:
 	if dist_note_panel < 9:
@@ -38,11 +42,12 @@ func _on_SpawnNote_update_scores(dist_note_panel) -> void:
 		scores += POINT_VALUES.ok
 		text_feedback.show_feedback("+ Ok")
 		
-	$GameConcerto/Scores.text = "%05d" % scores
+	$GameConcerto/Scores/label.text = "%05d" % scores
 
 func end_game(result:bool) -> void:
 	cam.stop_shake()
 	$GameConcerto/SpawnNote.stop_spawn()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if result:
 		cam.set_cam_target(SCREENS.ranking)
 		$Ranking/points.text = "%05d" % scores
