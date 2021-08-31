@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/DialogBox/DialogPopup/DialogPopup.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Arts/Clarissa/Icon/default.png" type="Texture" id=4]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=1]
 resource_name = "finalPanel"
 bg_color = Color( 0.960784, 0.921569, 0.964706, 1 )
 border_width_left = 8
@@ -18,12 +18,11 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Theme" id=10]
+[sub_resource type="Theme" id=2]
 resource_name = "temaX"
-Panel/styles/panel = SubResource( 9 )
+Panel/styles/panel = SubResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=1]
-resource_name = "defaultPanel"
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.960784, 0.921569, 0.964706, 1 )
 border_width_left = 8
 border_width_top = 8
@@ -35,16 +34,15 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 28
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "body_move"
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -60,7 +58,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1010, 110 ), Vector2( 1030, 110 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -76,11 +74,11 @@ tracks/0/keys = {
 "values": [ Vector2( 920, 110 ), Vector2( 940, 110 ) ]
 }
 
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
 [sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="Animation" id=11]
 resource_name = "start_popup"
@@ -126,8 +124,8 @@ margin_top = -10.0
 margin_right = -50.0
 margin_bottom = -10.0
 rect_pivot_offset = Vector2( 575, 80 )
-theme = SubResource( 10 )
-custom_styles/panel = SubResource( 1 )
+theme = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -141,8 +139,8 @@ anchor_right = 0.945454
 anchor_bottom = 0.812501
 margin_right = -130.0
 margin_bottom = -4.57764e-05
-custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "Lorem ipsum dolor sit amet, [b]consectetur[/b] adipiscing elit. Bla bla bla"
@@ -164,15 +162,15 @@ color = Color( 0.933333, 0.317647, 0.156863, 1 )
 polygon = PoolVector2Array( 0, 0, 0, 30, 28, 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox"]
-anims/body_move = SubResource( 4 )
-anims/icon_move = SubResource( 5 )
+anims/body_move = SubResource( 6 )
+anims/icon_move = SubResource( 7 )
 
 [node name="Button_dialog" type="Button" parent="DialogBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

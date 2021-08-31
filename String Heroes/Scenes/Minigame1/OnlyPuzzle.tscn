@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Minigame1/PuzzleController/PuzzleController.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Sounds/Musics/musica_do_quebra-cabeca.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/UI/Icons/icon_play.png" type="Texture" id=10]
 [ext_resource path="res://Assets/UI/Menus/Screens/string_notes.png" type="Texture" id=11]
+[ext_resource path="res://Assets/UI/Tutoriais/puzzle_tutorial.webm" type="VideoStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -61,8 +62,14 @@ anchor_bottom = 1.0
 color = Color( 0.831373, 0.764706, 0.839216, 1 )
 
 [node name="Label" type="Label" parent="Init"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = -280.0
+margin_right = 201.0
+margin_bottom = -204.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 text = "Puzzle violino"
@@ -79,9 +86,9 @@ anchor_top = 0.752778
 anchor_right = 0.641406
 anchor_bottom = 0.834722
 margin_left = 6.0
-margin_top = -0.000183105
+margin_top = 17.9998
 margin_right = 6.00031
-margin_bottom = 0.000183105
+margin_bottom = 18.0002
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
@@ -89,6 +96,21 @@ custom_fonts/font = SubResource( 3 )
 text = "Iniciar jogo"
 __meta__ = {
 "_editor_description_": ""
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Init"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -180.0
+margin_right = 300.0
+margin_bottom = 180.0
+stream = ExtResource( 12 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="game" type="Node2D" parent="."]
@@ -204,6 +226,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Init/Button" to="." method="_on_Button_jogar_pressed"]
+[connection signal="finished" from="Init/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="part_add" from="game/PuzzleController" to="game/DialogPopup" method="_on_PuzzleController_part_add"]
 [connection signal="change_screen" from="game/DialogPopup" to="." method="_on_change_screen"]
 [connection signal="pressed" from="end/Button_menu" to="." method="_on_Button_menu_pressed"]

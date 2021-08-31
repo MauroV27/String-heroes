@@ -3,6 +3,7 @@ extends Area2D
 const MAX_LIFE : int = 12
 
 var currently_life : int
+#enum {START, WON, LOST}
 
 signal end_game( result )
 signal note_colide

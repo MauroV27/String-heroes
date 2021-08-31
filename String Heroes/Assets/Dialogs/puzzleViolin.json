@@ -25,7 +25,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "A segunda peça é a ALMA, ela parece um palito e fica dentro do instrumento!",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -38,8 +38,8 @@
 	"type": "icon",
 	"character": "Clarissa",
 	"image" : "default.png",
-	"text" : "A próxima é a TAMPO SUPERIOR, peça que fecha o corpo do instrumento.",
-	"continue" : true
+	"text" : "A próxima é o TAMPO SUPERIOR, peça que fecha o corpo do instrumento.",
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -53,7 +53,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "Em seguida vem o BRAÇO, a parte que é segurada pela pessoa que toca.",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -67,7 +67,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "Agora que você pegou o jeito vamos pegar várias peças! O BOTÃO + ESTANDARTE + CAVALETE + MICROAFINADORES. O botão fica na base do corpo do instrumento e a pestana no fim do braço!",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -88,7 +88,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "E vamos de ABERTURA EM “S”. Ela é uma buraco em formato de “s” ou “f” no tampo superior.",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -102,7 +102,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "A próxima é a QUEIXEIRA. Ela fica no corpo do instrumento e serve de apoio para o queixo.",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -116,7 +116,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "Em seguida, a VOLUTA. Essa peça fica na pontinha do braço do instrumento.",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -130,7 +130,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "E falando nelas, as CRAVELHAS são uma peça que parecem pinos que ficam na voluta.",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -144,7 +144,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "Agora vamos botar o ESPELHO + PESTANA, eles ficam em cima do braço e é onde colocamos nossos dedos ao tocar!",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",
@@ -158,7 +158,7 @@
 	"character": "Clarissa",
 	"image" : "default.png",
 	"text" : "Para finalizar o instrumento faltam apenas as CORDAS!",
-	"continue" : true
+	"continue" : false
 	},
 {
 	"type": "icon",

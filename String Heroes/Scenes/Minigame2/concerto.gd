@@ -21,12 +21,14 @@ const POINT_VALUES = {
 func _ready() -> void:
 	Pause.set_pause_state(true)
 	ControllView.stop_all_musics()
+	$initial/VideoPlayer.play()
 
 
 func _on_Button_play_game_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:
 		cam.set_cam_target(SCREENS.game)
 		$GameConcerto/SpawnNote.start_game()
+		$initial/VideoPlayer.stop()
 		#Deixa o mouse invisivel
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -47,7 +49,10 @@ func _on_SpawnNote_update_scores(dist_note_panel) -> void:
 func end_game(result:bool) -> void:
 	cam.stop_shake()
 	$GameConcerto/SpawnNote.stop_spawn()
+	$GameConcerto/SpawnNote.destroy_all_notes()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	
 	if result:
 		cam.set_cam_target(SCREENS.ranking)
 		$Ranking/points.text = "%05d" % scores
@@ -59,3 +64,6 @@ func _on_Button_to_menu_pressed() -> void:
 
 func _on_Button_restart_pressed() -> void:
 	ControllView._change_scene("res://Scenes/Minigame2/Minigame2.tscn", "fade")
+
+func _on_VideoPlayer_finished() -> void:
+	$initial/VideoPlayer.play()

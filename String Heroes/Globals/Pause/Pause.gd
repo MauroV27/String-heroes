@@ -12,6 +12,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and cam_pause_here:
 		set_visible( true )
 		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func set_pause_state( new_state:bool ) -> void:
 	cam_pause_here = new_state

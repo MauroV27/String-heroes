@@ -176,7 +176,7 @@ area_collision = SubResource( 6 )
 part_name = "aberturaS"
 
 [node name="StaticPart8" parent="StaticPieces" instance=ExtResource( 6 )]
-visible = false
+position = Vector2( 432.654, 404.127 )
 texture = ExtResource( 13 )
 area_collision = SubResource( 7 )
 part_name = "queixeira"
@@ -241,7 +241,6 @@ area_collision = SubResource( 18 )
 part_name = "aberturaS"
 
 [node name="IntrumentPart7" parent="MovePieces" instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 82, 414 )
 texture = ExtResource( 13 )
 area_collision = SubResource( 19 )

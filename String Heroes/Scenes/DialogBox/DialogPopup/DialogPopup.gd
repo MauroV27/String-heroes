@@ -18,7 +18,8 @@ func start_dialog() -> void:
 	ControllView.stop_all_musics()
 
 func _process(delta: float) -> void:
-	$DialogBox/icon.visible = (finished and dialog_is_running)
+	$DialogBox/icon.visible = finished and dialog_is_running
+	
 	if finished and dialog_is_running:
 		$DialogBox/AnimationPlayer.current_animation = animation_type
 #		var finalized_theme = $DialogBox.get_stylebox("finalizedPanel")
@@ -42,12 +43,10 @@ func next_phrase() -> void:
 	$DialogBox.get_stylebox("defaultPanel") 
 	
 	$DialogBox/Character_icon.visible = true
-#	if ResourceLoader.exists(img):
-#		var texture = ImageTexture.new();
-#		var image = Image.new();
-#		image.load(img);
-#		$DialogBox/Character_icon.texture = image
-#	dialog_is_running = dialog[phraseNum]["continue"]
+	
+	# Verifica se o texto pode ou não proseguir
+	dialog_is_running = dialog[phraseNum]["continue"]
+	
 	animation_type = "icon_move"
 	
 	$DialogBox/Text.bbcode_text = dialog[phraseNum]["text"] 
@@ -64,5 +63,4 @@ func next_phrase() -> void:
 
 func _on_PuzzleController_part_add() -> void:
 	dialog_is_running = true
-	
 	next_phrase()

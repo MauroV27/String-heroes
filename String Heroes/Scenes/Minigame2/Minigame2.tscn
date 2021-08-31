@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Concerto/Fala 2.png" type="Texture" id=2]
@@ -15,9 +15,10 @@
 [ext_resource path="res://Assets/Fonts/RubikOne-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Globals/Camera/ScreenShake.gd" type="Script" id=14]
 [ext_resource path="res://Assets/UI/Icons/icon_restart.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/Tutoriais/concerto_tutorial.webm" type="VideoStream" id=16]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 64
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -34,20 +35,20 @@ font_data = ExtResource( 1 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 20, 205 )
 
-[sub_resource type="Theme" id=14]
+[sub_resource type="Theme" id=5]
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.12549, 0.121569, 0.129412, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 size = 36
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
 border_width_left = 8
 border_width_top = 8
@@ -59,28 +60,28 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=9]
 size = 64
 outline_size = 4
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=10]
 size = 100
 outline_size = 10
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 29
 corner_radius_top_right = 29
 corner_radius_bottom_right = 29
 corner_radius_bottom_left = 29
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 size = 36
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -96,6 +97,8 @@ script = ExtResource( 14 )
 playback_process_mode = 0
 
 [node name="initial" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -109,10 +112,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="initial"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -131.5
+margin_top = -280.0
+margin_right = 131.5
+margin_bottom = -204.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 text = "Concerto"
@@ -127,10 +134,10 @@ anchor_left = 0.353125
 anchor_top = 0.752778
 anchor_right = 0.641406
 anchor_bottom = 0.834722
-margin_left = 458.0
-margin_top = 542.0
-margin_right = 827.0
-margin_bottom = 601.0
+margin_left = 6.0
+margin_top = 17.9998
+margin_right = 6.00031
+margin_bottom = 18.0002
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
@@ -139,6 +146,20 @@ text = "Iniciar jogo"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="initial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -180.0
+margin_right = 300.0
+margin_bottom = 180.0
+stream = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="GameConcerto" type="Node2D" parent="."]
@@ -197,8 +218,8 @@ margin_top = 520.0
 margin_right = 710.0
 margin_bottom = 580.0
 rect_pivot_offset = Vector2( 70, 30 )
-theme = SubResource( 14 )
-custom_styles/panel = SubResource( 15 )
+theme = SubResource( 5 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -212,7 +233,7 @@ margin_left = -130.0
 margin_top = -55.0
 margin_right = 130.0
 margin_bottom = 55.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "00000"
 align = 1
@@ -280,7 +301,7 @@ margin_left = -445.0
 margin_top = -250.0
 margin_right = 445.0
 margin_bottom = 250.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -289,7 +310,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 40.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 text = "Pontuação"
@@ -306,7 +327,7 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 2.0
 margin_bottom = 2.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 text = "00000"
@@ -327,10 +348,10 @@ margin_left = -137.5
 margin_top = 160.0
 margin_right = 137.5
 margin_bottom = 208.0
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.960784, 0.94902, 0.94902, 1 )
 text = "Voltar ao menu"
@@ -359,7 +380,7 @@ __meta__ = {
 [node name="message" type="Label" parent="Defeat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 text = "Você passou perto, 
 tente de novo."
@@ -387,6 +408,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="initial/Button_play_game" to="." method="_on_Button_play_game_pressed"]
+[connection signal="finished" from="initial/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="end_game" from="GameConcerto/SpawnNote" to="." method="end_game"]
 [connection signal="update_scores" from="GameConcerto/SpawnNote" to="." method="_on_SpawnNote_update_scores"]
 [connection signal="end_game" from="GameConcerto/Clave" to="." method="end_game"]

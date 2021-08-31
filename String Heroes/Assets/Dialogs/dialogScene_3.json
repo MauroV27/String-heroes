@@ -2,37 +2,37 @@
 	{
 	"type": "body",
 	"character": "Clarissa",
-	"image" : "default.png",
-	"text" : "[i]Não acredito! É a Marianna mesmo! preciso agir normalmente[/i]",
+	"image" : "Clarissa_default",
+	"text" : "[i]Não acredito! É a Marianna mesmo! preciso agir normalmente[/i]"
 	},
 	{
 	"type": "body",
 	"character": "Marianna",
-	"image" : "default.png",
-	"text" : "Então você é a promissora Clarissa que tenho ouvido falar?",
+	"image" : "Marianna_default",
+	"text" : "Então você é a promissora Clarissa que tenho ouvido falar?"
 	},
 	{
 	"type": "body",
 	"character": "Clarissa",
-	"image" : "default.png",
-	"text" : "Promissora…? Quer dizer, sou eu sim",
+	"image" : "Clarissa_default",
+	"text" : "Promissora…? Quer dizer, sou eu sim"
 	},
 	{
 	"type": "body",
 	"character": "Marianna",
-	"image" : "default.png",
-	"text" : "Bom, Clarissa, está pronta?",
+	"image" : "Marianna_default",
+	"text" : "Bom, Clarissa, está pronta?"
 	},
 	{
 	"type": "body",
 	"character": "Clarissa",
-	"image" : "default.png",
-	"text" : "Eu nasci pronta!",
+	"image" : "Clarissa_default",
+	"text" : "Eu nasci pronta!"
 	},
 {
 	"type": "body",
 	"character": "Marianna",
-	"image" : "default.png",
-	"text" : "Vamos fazer um ensaio antes. Use o mouse para tocar as notas quando elas estiverem em cima da barra preta",
-	},
+	"image" : "Marianna_default",
+	"text" : "Vamos fazer um ensaio antes. Use o mouse para tocar as notas quando elas estiverem em cima da barra preta"
+	}
 ]

@@ -94,3 +94,8 @@ func _on_Timer_timeout() -> void:
 
 func _on_StartMusic_timeout() -> void:
 	$music.play()
+
+func destroy_all_notes():
+	for child in get_children():
+		if child.is_in_group("Note"):
+			child.queue_free()

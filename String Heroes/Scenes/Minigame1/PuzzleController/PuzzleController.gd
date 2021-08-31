@@ -9,7 +9,11 @@ var dialog
 signal game_complete( true )
 signal part_add
 
-var pieces_queue : PoolStringArray = ["tampa", "alma", "braço"]
+var pieces_queue : PoolStringArray = [
+	"tampa", "alma", "tampoSup","braço", "conjunto", "aberturaS",  
+	"queixeira", "voluta", "cravelha", "espelho", "cordas"
+]
+
 var piece_currently_index : int = 0 
 var next_piece : String = pieces_queue[piece_currently_index]
 
@@ -40,7 +44,6 @@ func update_pieces_connected( piece )-> void:
 		print("index peça atual:", piece_currently_index)
 		piece_currently_index += 1 
 		if piece_currently_index == len(pieces_queue):
-			print("show ok ok")
 			emit_signal("game_complete")
 		else:
 			next_piece = pieces_queue[piece_currently_index]

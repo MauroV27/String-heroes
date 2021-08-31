@@ -35,12 +35,14 @@ func next_phrase() -> void:
 	$Character_body.visible = true
 	
 	#Gambiarra para as imaagesn aparecerem, posteriormente será atualizada:
-	if dialog[phraseNum]["character"] == "Clarissa":
-		change_image_to("Clarissa_default")
-	elif dialog[phraseNum]["character"] == "Marianna":
-		change_image_to("Marianna_default")
-	else:
-		print("O nome ", dialog[phraseNum]["character"], "gerou um valor invalido :(")
+#	if dialog[phraseNum]["character"] == "Clarissa":
+#		change_image_to("Clarissa_default")
+#	elif dialog[phraseNum]["character"] == "Marianna":
+#		change_image_to("Marianna_default")
+#	else:
+#		print("O nome ", dialog[phraseNum]["character"], "gerou um valor invalido :(")
+	
+	change_image_to(dialog[phraseNum]["image"])
 	
 	animation_type = "body_move"
 	
