@@ -13,6 +13,8 @@ var count = 1
 
 func _ready() -> void:
 	arr = SCREENS.keys()
+	Pause.set_pause_state(true)
+	fala1.start_dialog()
 
 func _on_history_start_pressed() -> void:
 	if cam.get_cam_position() == SCREENS.initial:
@@ -21,4 +23,4 @@ func _on_history_start_pressed() -> void:
 
 func _on_change_screen(next_scene:String) -> void:
 	if next_scene == "tutorial1":
-		ControllView._change_scene("res://Scenes/Minigame1/Minigame1.tscn", "fade")
+		ControllView._change_scene("res://Scenes/Minigame1/Minigame1.tscn", "empty")

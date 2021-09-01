@@ -1,0 +1,287 @@
+[
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.4,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.4,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 0.3,
+        "spawner_id" : 4
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.3,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 4.07,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.2,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.3,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.4,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 0.3,
+        "spawner_id" : 4
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.3,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 5.3,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.2,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.3,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.2,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.3,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.4,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 0.3,
+        "spawner_id" : 4
+    },
+    {
+        "note_type" : "RE",
+        "wait_time" : 0.3,
+        "spawner_id" : 6
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 7,
+        "spawner_id" : 8
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.3,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.6,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.3,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.3,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.4,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "DO",
+        "wait_time" : 0.3,
+        "spawner_id" : 0
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.7,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.3,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.6,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.3,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 0.2,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.4,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "DO",
+        "wait_time" : 0.3,
+        "spawner_id" : 0
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 9,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.8,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 1.6,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 1.5,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 1.6,
+        "spawner_id" : 4
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 1.7,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "LA",
+        "wait_time" : 1.7,
+        "spawner_id" : 2
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 1.5,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 4.3,
+        "spawner_id" : 4
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.4,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.3,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "SOL",
+        "wait_time" : 0.4,
+        "spawner_id" : 3
+    },
+    {
+        "note_type" : "FA",
+        "wait_time" : 0.3,
+        "spawner_id" : 4
+    },
+    {
+        "note_type" : "MI",
+        "wait_time" : 0.3,
+        "spawner_id" : 5
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 3,
+        "spawner_id" : 1
+    },
+    {
+        "note_type" : "SI",
+        "wait_time" : 0.2,
+        "spawner_id" : 1
+    }
+]

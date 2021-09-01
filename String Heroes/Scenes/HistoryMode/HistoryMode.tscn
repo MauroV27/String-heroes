@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/DialogBox/DialogBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DialogBox/DialogNovel/DialogBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HistoryMode/HistoryMode.gd" type="Script" id=4]
 [ext_resource path="res://Assets/UI/Background/scene_dialog_1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/clarissa2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/clarissa3.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -32,6 +35,7 @@ __meta__ = {
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 
 [node name="StartHistory" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1280.0
@@ -87,8 +91,6 @@ __meta__ = {
 [node name="Fala1" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1280.0
-margin_right = 1280.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,6 +106,8 @@ __meta__ = {
 [node name="Dialog" parent="Fala1" instance=ExtResource( 2 )]
 dialogName = "dialogScene_1.json"
 next_screen = "tutorial1"
+images_datas = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
+images_names = [ "Clarissa_default", "Clarissa2", "Clarissa3" ]
 
 [connection signal="pressed" from="StartHistory/history_start" to="." method="_on_history_start_pressed"]
 [connection signal="change_screen" from="Fala1/Dialog" to="." method="_on_change_screen"]

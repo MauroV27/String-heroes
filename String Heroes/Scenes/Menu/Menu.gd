@@ -16,6 +16,8 @@ const SCREENS = {
 
 func _ready() -> void:
 #	CanvasLayer._change_music("res://Assets/Sounds/Musics/musica da tela inicial.mp3")
+#	Pause.set_pause_state(false)
+	$Seletor/HScrollBar/GameSelector.prepare_icons()
 	$music_sound.play()
 
 func _on_Button_menu_pressed() -> void:

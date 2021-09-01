@@ -1,0 +1,199 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/DialogBox/DialogNovel/DialogNovel.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/DialogBox/DialogHistoric/DialogHistoric.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Roboto-Italic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/clarissa2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/Icons/icon_historic.svg" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.960784, 0.921569, 0.964706, 1 )
+border_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1180, 130 ), Vector2( 1200, 130 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 110 ), Vector2( 940, 110 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[node name="DialogNovel" type="Control"]
+process_priority = 1
+anchor_left = -0.0015625
+anchor_right = 0.998438
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+dialogName = "dialogScene_3.json"
+images_datas = [ ExtResource( 5 ), ExtResource( 7 ) ]
+images_names = [ "Clarissa_default", "Clarissa2" ]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.768627, 0.588235, 0.517647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character_body" type="Sprite" parent="."]
+visible = false
+position = Vector2( 640, 400 )
+
+[node name="DialogBox" type="Panel" parent="."]
+anchor_left = 0.0507813
+anchor_top = 0.736111
+anchor_right = 0.949219
+anchor_bottom = 0.958333
+margin_left = -65.0001
+margin_top = -9.99994
+margin_right = 64.9998
+margin_bottom = 30.0002
+rect_pivot_offset = Vector2( 575, 80 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Name" type="RichTextLabel" parent="DialogBox"]
+anchor_left = 0.0273437
+anchor_top = 0.1
+anchor_right = 0.167969
+anchor_bottom = 0.3
+margin_bottom = -3.8147e-06
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+bbcode_enabled = true
+bbcode_text = "[b]consectetur[/b]"
+text = "consectetur"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": ""
+}
+
+[node name="Text" type="RichTextLabel" parent="DialogBox"]
+anchor_left = 0.0272727
+anchor_top = 0.1875
+anchor_right = 0.945454
+anchor_bottom = 0.812501
+margin_left = 0.0909271
+margin_top = 27.5
+margin_right = 34.8184
+margin_bottom = 2.49985
+custom_fonts/italics_font = SubResource( 4 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Lorem ipsum dolor sit amet, [b]consectetur[/b] adipiscing elit. Bla bla bla"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bla bla bla"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Timer" type="Timer" parent="DialogBox"]
+
+[node name="icon" type="Polygon2D" parent="DialogBox"]
+position = Vector2( 1180, 130 )
+color = Color( 0.933333, 0.317647, 0.156863, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 30, 28, 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox"]
+anims/body_move = SubResource( 7 )
+anims/icon_move = SubResource( 8 )
+
+[node name="Button_dialog" type="Button" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_historic" type="TextureButton" parent="DialogBox"]
+modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -110.001
+margin_top = 15.0
+margin_right = -62.001
+margin_bottom = 63.0
+rect_min_size = Vector2( 48, 48 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogHistoric" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[connection signal="add_text_to_historic" from="." to="DialogHistoric" method="add_data_in_historic"]
+[connection signal="pressed" from="DialogBox/Button_dialog" to="." method="_on_Button_dialog_pressed"]
+[connection signal="pressed" from="DialogBox/Button_historic" to="." method="_on_Button_historic_pressed"]

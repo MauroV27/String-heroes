@@ -10,6 +10,9 @@ export var dialogName = ""
 export(float) var textSpeed = 0.05
 export(String) var next_screen = ""
 
+export(Array, Texture) var images_datas 
+export(Array, String) var images_names
+
 const FILE_DIRECTORY = "res://.import/"#"res://Assets/Arts/"#
 const DIALOG_DIRECTORY = "res://Assets/Dialogs/"
 
@@ -20,6 +23,7 @@ var finished := false
 var finished_dialog := false
 
 var animation_type : String
+var images : Dictionary
 
 func _ready() -> void:
 	set_process(false)
@@ -27,6 +31,15 @@ func _ready() -> void:
 	$DialogBox/Timer.wait_time = textSpeed
 	dialog = get_dialog(dialogName)
 	assert(dialog, "Dialog not found")
+	
+	connect_names_with_textures()
+
+func connect_names_with_textures() -> void:
+	for id in len(images_datas):
+		var image_name = images_names[id]
+		var image_data = images_datas[id]
+		
+		images[image_name] = image_data
 
 func start_dialog() -> void:
 	set_process(true)
@@ -59,3 +72,7 @@ func get_dialog(dialog_ : String) -> Array:
 
 func next_phrase() -> void:
 	pass
+
+
+
+

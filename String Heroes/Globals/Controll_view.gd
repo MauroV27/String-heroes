@@ -2,10 +2,13 @@ extends CanvasLayer
 
 onready var animation = $Control/AnimationPlayer
 
+var dialog_music = load("res://Assets/Sounds/Musics/musica da tela de fala.mp3")
+
+var music_is_active : bool = false
 var scene : String
 
 func _change_scene(new_scene, anim) -> void:
-	scene = (new_scene)
+	scene = new_scene
 	animation.play(anim)
 
 func _new_scene()-> void:
@@ -13,14 +16,22 @@ func _new_scene()-> void:
 	if err != OK:
 		print("A erro has ocorred in scene transition: " + scene)
 
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_cancel"):
-		scene = "res://Scenes/Menu/Menu.tscn"
-		_new_scene()
+func play_dialog_music() -> void:
+	if not music_is_active:
+		$music.stream = dialog_music
+		$musicController.play("start_audio")
+		music_is_active = true
 
-func _change_music(new_music:String) -> void:
-#	var music = AudioStreamMP3.new()
-#	music.resource_path = new_music
-#	$music.stream = music
-#	$music.play()
-	pass
+func stop_all_musics() -> void:
+	$musicController.play("stop_audio")
+	music_is_active = false
+
+func _on_music_finished() -> void:
+	if music_is_active:
+		$music.play()
+
+func _start_audio_animation() -> void:
+	$music.play()
+
+func _stop_audio_animation() -> void:
+	$music.stop()

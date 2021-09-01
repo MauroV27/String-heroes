@@ -1,9 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/UI/Menus/Screens/Tela_inicial.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UI/Menus/Screens/Tela_menu.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Menu/IconButtons/IconButtons.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/UI/Menus/Screens/Logo_tela_inicial.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Menus/Screens/Tela_inicial_logo.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Menu/IconButtons/GameSelector.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=7]
@@ -14,10 +14,12 @@
 [ext_resource path="res://Assets/UI/Menus/Icons/icon_concerto_game_selected.png" type="Texture" id=12]
 [ext_resource path="res://Assets/UI/Menus/Icons/icon_concerto_game_deselected.png" type="Texture" id=13]
 [ext_resource path="res://Assets/UI/Menus/Icons/icon_puzzle_game_deselected.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Arts/Clarissa/Icon/default.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/Menus/Icons/Logo_História.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sounds/Sound_effects/clique no botao.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Assets/Sounds/Musics/musica da tela inicial.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Scenes/Minigame1/OnlyPuzzle.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Assets/UI/Menus/Screens/creditos.png" type="Texture" id=19]
+[ext_resource path="res://Assets/UI/Menus/Icons/clarissa_e_marianna_logo_selecionada.png" type="Texture" id=20]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
@@ -37,29 +39,83 @@ font_data = ExtResource( 7 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.831373, 0.764706, 0.839216, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="GDScript" id=5]
+script/source = "extends Control
+
+export(String) var item_name = \"Text\"
+export(bool) var item_focus = false
+export(PackedScene) var go_to_scene = null
+export(Texture) var texture_normal 
+export(Texture) var texture_hover 
+
+var _intern_name_reference : String = \"withoutName\"
+
+const ITEM_STATE = {
+	\"Selected\" : {
+		\"opacity\" : 1,
+		\"scale\" : 1
+	},
+	\"Deselected\" : {
+		\"opacity\" : 0.6,
+		\"scale\" : 0.8
+	},
+}
+
+func _ready() -> void:
+	$item_name.text = item_name
+	_intern_name_reference = name
+	 
+	if texture_hover != null and texture_normal != null:
+		$Icon_button.texture_hover = texture_hover
+		$Icon_button.texture_normal = texture_normal
+	
+	if not item_focus:
+		set_scale(Vector2(0.8, 0.8))
+
+func _on_IconButtons_mouse_entered() -> void:
+	get_parent().change_item_focus(_intern_name_reference)
+
+func effect_controller(state:Dictionary = ITEM_STATE.Deselected) -> void:
+	modulate = Color(1,1,1, state.opacity)
+	rect_scale = Vector2(state.scale,  state.scale)
+
+func _on_Icon_button_pressed() -> void:
+	get_parent().button_pressed_to_scene(go_to_scene)
+	$sound_button_pressed.play()
+
+func update_status_icon(itens:Dictionary) -> void:
+	item_focus = itens[_intern_name_reference]
+	if item_focus:
+		effect_controller( ITEM_STATE.Selected )
+	else:
+		effect_controller( ITEM_STATE.Deselected )
+
+
+"
+
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 29
 corner_radius_top_right = 29
 corner_radius_bottom_right = 29
 corner_radius_bottom_left = 29
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 48
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
 corner_radius_top_left = 29
 corner_radius_top_right = 29
 corner_radius_bottom_right = 29
 corner_radius_bottom_left = 29
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 20
 font_data = ExtResource( 7 )
 
@@ -104,12 +160,14 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Inicial"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 375.0
-margin_top = 92.0
-margin_right = -224.0
-margin_bottom = -228.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -340.5
+margin_top = -268.0
+margin_right = 340.5
+margin_bottom = 132.0
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -139,7 +197,7 @@ anchor_top = 0.959722
 anchor_right = 0.180469
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 3 )
-text = "String Heroes - alfa 0.1.5"
+text = "String Heroes - versão 1.0"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -164,6 +222,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Seletor"]
+visible = false
 margin_right = 1280.0
 margin_bottom = 720.0
 texture = ExtResource( 2 )
@@ -204,28 +263,30 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 75.0
+margin_top = 0.0
 margin_right = 375.0
 margin_bottom = 400.0
-rect_scale = Vector2( 1, 1 )
+script = SubResource( 5 )
 item_name = "Concerto"
 go_to_scene = ExtResource( 9 )
 texture_normal = ExtResource( 13 )
 texture_hover = ExtResource( 12 )
 
 [node name="IconButtons2" parent="Seletor/HScrollBar/GameSelector" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 425.0
+margin_top = 0.0
 margin_right = 725.0
 margin_bottom = 400.0
-rect_scale = Vector2( 1, 1 )
 item_name = "História"
 item_focus = true
 go_to_scene = ExtResource( 10 )
 texture_normal = ExtResource( 15 )
-texture_hover = ExtResource( 15 )
+texture_hover = ExtResource( 20 )
 
 [node name="IconButtons3" parent="Seletor/HScrollBar/GameSelector" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -233,9 +294,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 775.0
+margin_top = 0.0
 margin_right = 1075.0
 margin_bottom = 400.0
-rect_scale = Vector2( 1, 1 )
 item_name = "Quebra-cabeça"
 go_to_scene = ExtResource( 18 )
 texture_normal = ExtResource( 14 )
@@ -250,10 +311,10 @@ margin_left = -0.000671387
 margin_top = -0.000305176
 margin_right = -0.000610352
 margin_bottom = -0.000305176
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Créditos"
 __meta__ = {
 "_edit_use_anchors_": true,
@@ -278,6 +339,7 @@ margin_bottom = 720.0
 color = Color( 0.831373, 0.764706, 0.839216, 1 )
 
 [node name="Label" type="Label" parent="Creditos"]
+visible = false
 modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -287,10 +349,24 @@ margin_left = -91.5
 margin_top = -28.5
 margin_right = 91.5
 margin_bottom = 28.5
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Créditos"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Creditos"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -300,10 +376,14 @@ anchor_left = 0.441406
 anchor_top = 0.930556
 anchor_right = 0.558594
 anchor_bottom = 0.972222
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
+margin_left = 0.000305176
+margin_top = -590.0
+margin_right = 0.000305176
+margin_bottom = -590.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "Voltar ao menu"
 __meta__ = {
 "_edit_use_anchors_": true,
@@ -334,7 +414,7 @@ anchor_left = 0.408594
 anchor_top = 0.460417
 anchor_right = 0.595312
 anchor_bottom = 0.539583
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Loading. . ."
 align = 1
 valign = 1
@@ -343,6 +423,7 @@ __meta__ = {
 }
 
 [node name="Go_to" type="Label" parent="Loading"]
+visible = false
 modulate = Color( 0.933333, 0.317647, 0.156863, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -352,7 +433,7 @@ margin_left = -108.5
 margin_top = 21.5
 margin_right = 108.5
 margin_bottom = 78.5
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "undefined"
 align = 1
 valign = 1

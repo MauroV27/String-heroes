@@ -28,6 +28,7 @@ config/icon="res://default.png"
 [autoload]
 
 ControllView="*res://Globals/Controll_view.tscn"
+Pause="*res://Globals/Pause/Pause.tscn"
 
 [display]
 

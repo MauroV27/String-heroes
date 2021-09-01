@@ -1,13 +1,49 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=24 format=2]
 
+[ext_resource path="res://Assets/Arts/Clarissa/Body/clarissa3.png" type="Texture" id=1]
 [ext_resource path="res://Globals/Camera/Camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Concerto/Interface_Concerto.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/DialogBox/DialogBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Concerto/Fala 2.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/DialogBox/DialogNovel/DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Minigame1/Minigame1.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Minigame1/PuzzleController/PuzzleController.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/UI/Background/fundo quebra cabeça estilizado 1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UI/Background/scene_dialog_1.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/DialogBox/DialogPopup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/DialogBox/DialogPopup/DialogPopup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Arts/Marianna/Body/default.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Arts/Clarissa/Mini/mini clarissa 0.png" type="Texture" id=12]
+[ext_resource path="res://Assets/UI/Menus/Screens/parabens.png" type="Texture" id=13]
+[ext_resource path="res://Assets/UI/Icons/icon_play.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UI/Menus/Screens/string_notes.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sounds/Musics/musica_do_quebra-cabeca.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/clarissa2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/UI/Tutoriais/puzzle_tutorial.webm" type="VideoStream" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+corner_radius_top_left = 29
+corner_radius_top_right = 29
+corner_radius_bottom_right = 29
+corner_radius_bottom_left = 29
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.960784, 0.956863, 0.956863, 0 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 11 )
 
 [node name="Minigame1" type="Node2D"]
 script = ExtResource( 5 )
@@ -39,10 +75,77 @@ anchor_bottom = 0.0
 margin_right = 1280.0
 margin_bottom = 720.0
 dialogName = "dialogTutorial_1.json"
-next_screen = "game"
+next_screen = "tutorial"
+
+[node name="tutorial" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1280.0
+margin_right = 2560.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="tutorial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+
+[node name="Label" type="Label" parent="tutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = -280.0
+margin_right = 201.0
+margin_bottom = -204.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+text = "Puzzle violino"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="start_game" type="Button" parent="tutorial"]
+anchor_left = 0.353125
+anchor_top = 0.752778
+anchor_right = 0.641406
+anchor_bottom = 0.834722
+margin_left = 6.0
+margin_top = 17.9998
+margin_right = 6.00031
+margin_bottom = 18.0002
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "Iniciar jogo"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="tutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -180.0
+margin_right = 300.0
+margin_bottom = 180.0
+stream = ExtResource( 18 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="game" type="Node2D" parent="."]
-position = Vector2( 1280, 0 )
+position = Vector2( 2560, 0 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -66,34 +169,101 @@ margin_bottom = 720.0
 dialogName = "puzzleViolin.json"
 next_screen = "end"
 
-[node name="Final" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 2560.0
-margin_right = 2560.0
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="music" type="AudioStreamPlayer" parent="game"]
+stream = ExtResource( 16 )
 
-[node name="ColorRect" type="TextureRect" parent="Final"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
-texture = ExtResource( 8 )
-
-[node name="DialogNovel" parent="Final" instance=ExtResource( 4 )]
-margin_right = 1280.0
-margin_bottom = 720.0
-dialogName = "puzzleCongrats.json"
-next_screen = "fala2"
-
-[node name="Fala2" type="Control" parent="."]
+[node name="end_game" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3840.0
 margin_right = 5120.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="end_game"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="end_game"]
+position = Vector2( 640, 270 )
+texture = ExtResource( 15 )
+
+[node name="ColorRect2" type="ColorRect" parent="end_game"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -60.0
+margin_right = 250.0
+margin_bottom = 30.0
+color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mini clarissa 0" type="Sprite" parent="end_game"]
+position = Vector2( 640, 200 )
+scale = Vector2( 1.136, 1.136 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 1, 4, 200.547, 227.37 )
+
+[node name="parabens" type="Sprite" parent="end_game"]
+position = Vector2( 640, 310 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="end_game"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -309.0
+margin_top = 35.0
+margin_right = 308.999
+margin_bottom = 152.0
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+text = "Está completo!
+Agora eu vou conseguir tocar no concerto!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button_menu" type="TextureButton" parent="end_game"]
+anchor_left = 0.353125
+anchor_top = 0.752778
+anchor_right = 0.641406
+anchor_bottom = 0.834722
+margin_left = 144.0
+margin_top = -0.000183105
+margin_right = -136.0
+margin_bottom = 29.0002
+rect_pivot_offset = Vector2( 44, 44 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Fala2" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5120.0
+margin_right = 6400.0
 margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -110,9 +280,14 @@ __meta__ = {
 
 [node name="Dialog" parent="Fala2" instance=ExtResource( 4 )]
 next_screen = "next_scene"
+images_datas = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 17 ) ]
+images_names = [ "Clarissa3", "Marianna_default", "Clarissa2" ]
 
 [connection signal="change_screen" from="Initial/Dialog" to="." method="_change_screen"]
+[connection signal="pressed" from="tutorial/start_game" to="." method="_on_start_game_pressed"]
+[connection signal="finished" from="tutorial/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="game_complete" from="game/PuzzleController" to="." method="_on_PuzzleController_game_complete"]
 [connection signal="part_add" from="game/PuzzleController" to="game/DialogPopup" method="_on_PuzzleController_part_add"]
-[connection signal="change_screen" from="Final/DialogNovel" to="." method="_change_screen"]
+[connection signal="connect_with_puzzle_controller" from="game/DialogPopup" to="game/PuzzleController" method="_on_DialogPopup_connect_with_puzzle_controller"]
+[connection signal="pressed" from="end_game/Button_menu" to="." method="_on_Button_menu_pressed"]
 [connection signal="change_screen" from="Fala2/Dialog" to="." method="_change_screen"]

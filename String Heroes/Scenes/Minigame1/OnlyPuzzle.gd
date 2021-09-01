@@ -8,14 +8,24 @@ var SCREENS = {
 	"end"	  : Vector2(2560, 0),
 }
 
+func _ready() -> void:
+	Pause.set_pause_state(true)
+	$Init/VideoPlayer.play()
+
 func _on_Button_jogar_pressed() -> void:
 	cam.set_cam_target(SCREENS.game)
 	$game/DialogPopup.start_dialog()
 	$game/PuzzleController.start_game()
+	$game/music.play()
+	$Init/VideoPlayer.stop()
 
-func _on_Button_menu_pressed() -> void:
+func _on_Button_menu_pressed() -> void:	
 	ControllView._change_scene("res://Scenes/Menu/Menu.tscn", "fade")
 
 func _on_change_screen(new_scene) -> void:
 	if new_scene == "end":
 		cam.set_cam_target(SCREENS.end)
+		$game/music.stop()
+
+func _on_VideoPlayer_finished() -> void:
+	$Init/VideoPlayer.play()

@@ -2,19 +2,19 @@
 	{
 	"type": "body",
 	"character": "Clarissa",
-	"image" : "default.png",
-	"text" : "Ugh! Estou tão nervosa! Fui chamada para tocar em um concerto com a Marianna, a famosa sereia cantora!",
+	"image" : "Clarissa3",
+	"text" : "Ugh! Estou tão nervosa! Fui chamada para tocar em um concerto com a Marianna, a famosa sereia cantora!"
 	},
 	{
 	"type": "body",
 	"character": "Clarissa",
-	"image" : "default.png",
-	"text" : "Ouvi dizer que ela nunca desafina, isso é incrível! Não consigo me imaginar tocando com ela!",
+	"image" : "Clarissa3",
+	"text" : "Ouvi dizer que ela nunca desafina, isso é incrível! Não acredito que vou tocar com ela!"
 	},
 	{
 	"type": "body",
 	"character": "Clarissa",
-	"image" : "default.png",
-	"text" : "Mas... acho que meu instrumento não é muito bom, acho que vou precisar de um novo! Tem que ser perfeito! Vamos ao trabalho!",
-	},
+	"image" : "Clarissa2",
+	"text" : "Mas... acho que meu instrumento não é muito bom, vou precisar de um novo! Tem que ser perfeito! Vamos ao trabalho!"
+	}
 ]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/violino_erro.wav-f9d4a7a2d5caea1565b8f6163e3d766d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Sound_effects/violino_erro.wav"
+dest_files=[ "res://.import/violino_erro.wav-f9d4a7a2d5caea1565b8f6163e3d766d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

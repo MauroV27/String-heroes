@@ -1,0 +1,182 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/DialogBox/DialogPopup/DialogPopup.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Arts/Clarissa/Icon/Neutra.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+resource_name = "finalPanel"
+bg_color = Color( 0.960784, 0.921569, 0.964706, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.933333, 0.317647, 0.156863, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id=2]
+resource_name = "temaX"
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.960784, 0.921569, 0.964706, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.831373, 0.764706, 0.839216, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1010, 110 ), Vector2( 1030, 110 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 110 ), Vector2( 940, 110 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="Animation" id=11]
+resource_name = "start_popup"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogBox:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="DialogPopup" type="Control"]
+process_priority = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.768627, 0.588235, 0.517647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBox" type="Panel" parent="."]
+anchor_left = 0.0507813
+anchor_top = 0.736111
+anchor_right = 0.949219
+anchor_bottom = 0.958333
+margin_top = -10.0
+margin_right = -50.0
+margin_bottom = -10.0
+rect_pivot_offset = Vector2( 575, 80 )
+theme = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Text" type="RichTextLabel" parent="DialogBox"]
+anchor_left = 0.0272727
+anchor_top = 0.1875
+anchor_right = 0.945454
+anchor_bottom = 0.812501
+margin_right = -130.0
+margin_bottom = -4.57764e-05
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Lorem ipsum dolor sit amet, [b]consectetur[/b] adipiscing elit. Bla bla bla"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bla bla bla"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Character_icon" type="Sprite" parent="DialogBox"]
+position = Vector2( 1055, 80 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="DialogBox"]
+
+[node name="icon" type="Polygon2D" parent="DialogBox"]
+position = Vector2( 920, 110 )
+color = Color( 0.933333, 0.317647, 0.156863, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 30, 28, 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox"]
+anims/body_move = SubResource( 6 )
+anims/icon_move = SubResource( 7 )
+
+[node name="Button_dialog" type="Button" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start_popup = SubResource( 11 )
+
+[connection signal="pressed" from="DialogBox/Button_dialog" to="." method="_on_Button_dialog_pressed"]
