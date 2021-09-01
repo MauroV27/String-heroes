@@ -61,7 +61,6 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("click_left"):
 		currently_piece.selected = not currently_piece.selected
 
-
 func _on_DialogPopup_connect_with_puzzle_controller(dialog_is_running) -> void:
 	dialog_is_paused = not dialog_is_running
 	print(dialog_is_paused)

@@ -151,7 +151,8 @@ __meta__ = {
 }
 
 [node name="Character_icon" type="Sprite" parent="DialogBox"]
-position = Vector2( 1050, 80 )
+position = Vector2( 1055, 80 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="DialogBox"]

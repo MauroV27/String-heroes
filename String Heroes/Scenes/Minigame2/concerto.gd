@@ -52,12 +52,13 @@ func end_game(result:bool) -> void:
 	$GameConcerto/SpawnNote.destroy_all_notes()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	
 	if result:
 		cam.set_cam_target(SCREENS.ranking)
 		$Ranking/points.text = "%05d" % scores
 	else:
 		cam.set_cam_target(SCREENS.defeat)
+		$GameConcerto/SpawnNote.queue_free()
+		$GameConcerto/Clave.queue_free()
 
 func _on_Button_to_menu_pressed() -> void:
 	ControllView._change_scene("res://Scenes/Menu/Menu.tscn", "fade")

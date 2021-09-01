@@ -34,11 +34,11 @@ func _change_screen(new_scene) -> void:
 	if new_scene == "tutorial":
 		cam.set_cam_target(SCREENS.tutorial)
 		ControllView.stop_all_musics()
-	if new_scene == "game":
-		cam.set_cam_target(SCREENS.game)
-		$game/DialogPopup.start_dialog()
-		$game/PuzzleController.start_game()
-		$game/music.play()
+#	if new_scene == "game":
+#		cam.set_cam_target(SCREENS.game)
+#		$game/DialogPopup.start_dialog()
+#		$game/PuzzleController.start_game()
+#		$game/music.play()
 	if new_scene == "end":
 		cam.set_cam_target(SCREENS.end)
 #		$Final/DialogNovel.start_dialog()
@@ -60,6 +60,7 @@ func _on_start_game_pressed() -> void:
 	$game/DialogPopup.start_dialog()
 	$game/PuzzleController.start_game()
 	$game/music.play()
+	$tutorial/VideoPlayer.stop()
 
 func _on_VideoPlayer_finished() -> void:
 	$tutorial/VideoPlayer.play()
