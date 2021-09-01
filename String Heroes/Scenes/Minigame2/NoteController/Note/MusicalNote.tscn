@@ -11,7 +11,7 @@ corner_radius_bottom_right = 90
 corner_radius_bottom_left = 90
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 25.0
+radius = 20.0
 
 [node name="MusicalNote" type="Area2D" groups=[
 "Note",

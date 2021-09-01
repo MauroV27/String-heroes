@@ -9,9 +9,10 @@ onready var cam = $Camera
 
 var SCREENS = {
 	"initial" : Vector2.ZERO,
-	"game"    : Vector2(1280, 0),
-	"end"	  : Vector2(2560, 0),
-	"fala2"	  : Vector2(3840, 0),
+	"tutorial": Vector2(1280, 0),
+	"game"    : Vector2(2560, 0),
+	"end"	  : Vector2(3840, 0),
+	"fala2"	  : Vector2(5120, 0),
 }
 
 func _ready() -> void:
@@ -30,6 +31,9 @@ func _on_Button_end_game_pressed() -> void:
 	$Fala2/Dialog.start_dialog()
 
 func _change_screen(new_scene) -> void:
+	if new_scene == "tutorial":
+		cam.set_cam_target(SCREENS.tutorial)
+		ControllView.stop_all_musics()
 	if new_scene == "game":
 		cam.set_cam_target(SCREENS.game)
 		$game/DialogPopup.start_dialog()
@@ -43,8 +47,19 @@ func _change_screen(new_scene) -> void:
 		ControllView._change_scene("res://Scenes/Minigame2/Minigame2.tscn", "fade")
 
 func _on_PuzzleController_game_complete() -> void:
-	cam.set_cam_target(SCREENS.end)
+#	cam.set_cam_target(SCREENS.end)
+	pass
 
 func _on_Button_menu_pressed() -> void:
 	cam.set_cam_target(SCREENS.fala2)
+	$game/music.stop()
 	$Fala2/Dialog.start_dialog()
+
+func _on_start_game_pressed() -> void:
+	cam.set_cam_target(SCREENS.game)
+	$game/DialogPopup.start_dialog()
+	$game/PuzzleController.start_game()
+	$game/music.play()
+
+func _on_VideoPlayer_finished() -> void:
+	$tutorial/VideoPlayer.play()

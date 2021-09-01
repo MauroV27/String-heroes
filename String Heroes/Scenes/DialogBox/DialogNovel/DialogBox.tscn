@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/DialogBox/DialogHistoric/DialogHistoric.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Arts/Clarissa/Body/default.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fonts/Roboto-Italic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Arts/Clarissa/Body/clarissa2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UI/Icons/icon_historic.svg" type="Texture" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -81,8 +82,8 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 dialogName = "dialogScene_3.json"
-images_datas = [ ExtResource( 5 ) ]
-images_names = [ "Clarissa_default" ]
+images_datas = [ ExtResource( 5 ), ExtResource( 7 ) ]
+images_names = [ "Clarissa_default", "Clarissa2" ]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

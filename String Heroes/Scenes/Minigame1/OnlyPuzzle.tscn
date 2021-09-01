@@ -60,6 +60,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.831373, 0.764706, 0.839216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Init"]
 anchor_left = 0.5
@@ -229,4 +232,5 @@ __meta__ = {
 [connection signal="finished" from="Init/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 [connection signal="part_add" from="game/PuzzleController" to="game/DialogPopup" method="_on_PuzzleController_part_add"]
 [connection signal="change_screen" from="game/DialogPopup" to="." method="_on_change_screen"]
+[connection signal="connect_with_puzzle_controller" from="game/DialogPopup" to="game/PuzzleController" method="_on_DialogPopup_connect_with_puzzle_controller"]
 [connection signal="pressed" from="end/Button_menu" to="." method="_on_Button_menu_pressed"]

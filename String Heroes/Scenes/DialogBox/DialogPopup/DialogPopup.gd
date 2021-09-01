@@ -3,6 +3,7 @@ extends "res://Scenes/DialogBox/Dialog.gd"
 var dialog_is_running : bool = true
 
 signal change_screen(new_scene)
+signal connect_with_puzzle_controller( dialog_is_running )
 
 var default_panel_theme : Theme
 
@@ -46,6 +47,8 @@ func next_phrase() -> void:
 	
 	# Verifica se o texto pode ou não proseguir
 	dialog_is_running = dialog[phraseNum]["continue"]
+	
+	emit_signal("connect_with_puzzle_controller", dialog_is_running)
 	
 	animation_type = "icon_move"
 	

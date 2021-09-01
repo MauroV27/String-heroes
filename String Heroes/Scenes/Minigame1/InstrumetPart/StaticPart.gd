@@ -15,6 +15,11 @@ signal piece_connected( piece)
 func _ready() -> void:
 	modulate = Color(1,1,1,0)
 
+func state_of_puzzle_controller() -> bool:
+	#Verifica se o dialogo está travado ou não
+	# Se não estiver a peça não poderá ser encaixada
+	return get_parent().get_parent().dialog_is_paused
+
 func _on_area_entered(area: Area2D) -> void:
 	# Verifica se a área pertence ao grupo da partes moveis;
 	if area.is_in_group("movel_part"):
@@ -22,8 +27,13 @@ func _on_area_entered(area: Area2D) -> void:
 		# Verifica se ambas as regiões tem o mesmo nome;
 		if part_name == area.get_parent().get_part_name():
 			
+			if state_of_puzzle_controller() == false:
+				area.get_parent().restar_position()
+				return
+			
 			# Verifica se a ordem do controlador ( PuzzleController ) está nessa peça
 			if part_name == get_parent().get_parent().next_piece:
 				modulate = Color(1,1,1,1)
 				emit_signal("piece_connected", area.get_parent())
 				$PieceConnected.play()
+

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Minigame2/ClaveController/Clave.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sounds/Sound_effects/clique no botao opçao2.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sounds/Sound_effects/violino_erro.wav" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Concerto/Sprite_Sheet_Clave.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -21,5 +21,6 @@ hframes = 4
 
 [node name="DamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -12.0
 
 [connection signal="area_entered" from="." to="." method="_on_Clave_area_entered"]
