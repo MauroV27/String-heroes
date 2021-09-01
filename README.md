@@ -34,6 +34,7 @@ O principal objetivo da aplicação é proporcionar uma opção de ensino que at
   <tr> <td>RF_F3: Jogo Quebra cabeças </td><td>OnlyPuzzle.gd</td> </tr>
   <tr> <td>RF_F4: Jogo Concerto </td><td>concerto.gd</td> </tr>
   <tr> <td>RF_F5: Sistema de pause </td><td>Pause.gd</td> </tr>
+  <tr> <td>RF_F6: Histórico de diálogos </td><td>DialogHistoric.gd </td> </tr>
 </table>
 
 ### Funções de saída:
